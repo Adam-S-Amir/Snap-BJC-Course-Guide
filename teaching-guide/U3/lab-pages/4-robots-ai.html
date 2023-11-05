@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="/bjc-r/llab/loader.js"></script>
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+        <title>Unit 3 Lab 4 Teacher Guide</title>
+	</head>
+
+	<body>
+		<h2>Lab 4: Robots and Artificial Intelligence</h2>
+        <div class="todo">Goal: researching new developments; discussing remaining challenges and consequences of the new technology</div>
+        <p>The most important advice we can offer to teachers on this topic is to seek out <em>current</em> readings for students, because the technology changes so quickly.</p>
+        <p>It's interesting to compare the strengths and weaknesses of computers compared to people. Modern electronic circuits are vastly faster, with a vastly greater storage capacity, than the human brain. But the human brain doesn't just do one thing at a time; every neuron is &quot;running&quot; all the time, giving us a vast parallelism that was beyond our ability to simulate with computers until quite recently. Many of the early AI goals, such as playing chess at human expert level, were finally accomplished by brute speed at considering possible moves in parallel, rather than by understanding how human chess masters think.</p>
+        <p>There have been several recent achievements of similar goals. The world's best chess player has been a computer since the 1990s, but 2015 was the first victory of a computer Go program over a human champion without  handicapping. A computer won the TV game &quot;Jeopardy!&quot; in 2011, generating lots of good press for AI. In that case, in addition to speed, vast amounts of data were indexed to give the computer the knowledge of popular culture required in that game.</p>
+        <p>In early AI work, researchers devised algorithms and programmed them into computers, just as students do in this course. Modern AI work is quite different: The computer is programmed with a &quot;neural network&quot; modeled on the brain, and then &quot;trained&quot; with millions or billions of examples of whatever the computer is asked to process&mdash;pedestrians in road pictures for a self-driving car, the same face in different pictures, tumors in x-ray pictures, spoken words. The researchers don't really know how the computer will use its simulated neurons, and so they are surprised by undesirable results: the simulated cars don't recognize black pedestrians; the Twitter bot learns to tweet racist neo-Nazi propaganda.</p>
+        <p>In the old days, some people were afraid of AI because of movies about killer humanoid robots. Sometimes enthusiasts proposed to use AI in ways that really were threatening, such as the Strategic Defense Initiative (&quot;Star Wars&quot;) of the 1980s, which proposed to put satellites in orbit armed with deadly weapons that onboard computers would deploy autonomously. Luckily, the technology of the time fell so far short of being able to meet the needs of the program that early testing failed spectacularly and the program was cancelled.</p>
+        <p>Today, some people, including some AI researchers, are afraid of AI because governments and businesses are eagerly deploying neural nets to make decisions about whom to hire, who should get a mortgage, and which prisoners to parole. The threat isn't that the computers try to take over; it's that people want them to! At the same time, AI is saving lives in medical research. Like every other kind of technology, we can neither prohibit AI nor blindly endorse it, but must question who benefits and who is hurt, and try to prevent the harms.</p>
+        <p>Robots, an AI-enabled technology, are already widely used in manufacturing. Those robots don't look like people; each robot is more like a single arm and hand. Other robots, such as the ones used to explore other planets, are more like cars, but without riders. Self-driving cars on Earth are more controversial. Current technology seems to be better than human drivers on highways, but not yet ready for local streets. But, like AI in general, the autonomous vehicle technology changes quickly.</p>
+        
+        
+        <h3>Pacing</h3>
+		<div>
+			The 2 required lab pages could be split across 2&ndash;4 days (<strong>85&ndash;170 minutes</strong>). Expected times to complete follow:
+			<ul>
+				<li>25&ndash;50 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/3-lists/4-robots-ai/1-what-is-ai.html?topic=nyc_bjc%2F3-lists.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 1: What is AI?">What is AI?</a></li>
+				<li>If used, 25&ndash;50 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/3-lists/4-robots-ai/2-robots-and-humans.html?topic=nyc_bjc%2F3-lists.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 2: Robots and Humans">Robots and Humans</a>*</li>
+				<li>60&ndash;120 minutes (2&ndash;3 class periods) on <a href="/bjc-r/cur/programming/3-lists/4-robots-ai/3-implications.html?topic=nyc_bjc%2F3-lists.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 3: Implications of AI">Implications of AI</a></li>
+				<li>If used, 35&ndash;70 minutes (1&ndash;2 class periods) on <a href="/bjc-r/cur/programming/3-lists/4-robots-ai/4-breakthroughs-possibilities.html?topic=nyc_bjc%2F3-lists.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 4: Recent Breakthroughs">Recent Breakthroughs</a>*</li>
+			</ul>
+    		<div w3-include-html="/bjc-r/utilities/includes/asterisk.txt"></div><script>w3.includeHTML();</script>        
+		</div>
+
+
+		<h3>Prepare</h3>
+		<div>
+			<ul>
+				<li>The news is full of stories about artificial intelligence. Continue to use <a href="/bjc-r/cur/teaching-guide/U1/general-support/openers.html#computingnews" target="_blank" title="Computing in the News">Computing in the News</a>, and know that students will also be reading and sharing many articles during this Lab.</li>
+                <li>
+                    There are many online resources about AI that you can use to become more familiar with the subject. Some potentially useful resources that are not included in the students materials are:
+                    <ul>
+                        <li><a href="http://aitopics.org/news" target="_blank" title="AI Topics">AI in the News from AITopics.org</a> (You can also subscribe to an email digest)</li>
+                        <li><a href="https://www.ted.com/topics/ai" target="_blank" title="TED talks on AI">TED talks on AI</a> and an article about <a href="http://www.popularmechanics.com/technology/robots/a16386/ted-talk-written-by-ai/" target="_blank" title="AI Can Write One Hell of a TED Talk">TED talks <em>written</em> by AI</a></li>
+                        <li><a href="http://robohub.org/why-making-robots-is-still-hard/" target="_blank" title="Robohub: Why making robots is still hard">Why making robots is still hard</a></li>
+                        <li>An interesting set of blog posts about AI (some inappropriate language for students): <a href="http://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html" target="_blank" title="The AI Revolution: The Road to Superintelligence">AI part 1 (especially the part starting at "The Road to Superintelligence"</a> and <a href="http://waitbutwhy.com/2015/01/artificial-intelligence-revolution-2.html" target="_blank" title="The AI Revolution: Our Immortality or Extinction">Part 2 "Our Immortality or Extinction"</a></li>
+                        <li>This article has useful images and an interesting discussion about the difficulty of recognizing letters: <a href="http://web.stanford.edu/group/SHR/4-2/text/hofstadter.html" target="_blank" title="on seeing A's and seeing As">On seeing A's and seeing As</a></li>
+                    </ul>
+            	</li>
+			</ul>
+		</div>
+
+
+		<h3>Lab Pages</h3>
+		<div>
+			<ul>
+				<li>
+					<strong>Page 1: What is AI?</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+                				<li>Understand that artificial intelligence is a very broad field that has many, many applications.</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+								<li>This discussion focuses on one aspect of AI - getting computers to recognize and understand images. This topic is an example of human intelligence that we might not always think of as "intelligence" but which is very difficult for computers.</li>
+                                <li>
+                                    During the class discussion, ask students to identify social implications of this technology. For example, the articles listed on the student page might lead to discussions of:
+                                    <ul>
+                                        <li>An app that names objects helps the visually impaired. This technology can also translate to <a href="http://www.popsci.com/fda-allows-marketing-device-lets-blind-see-their-tongues" target="_blank" title="Device That Helps Blind People See With Their Tongues Just Won FDA Approval">new medical devices</a></li>
+                                        <li>Facial recognition tags photos in Facebook, can be used instead of passwords, and is <a href="http://www.washingtontimes.com/news/2016/jan/21/us-airports-roll-out-facial-recognition-software/" target="_blank" title="U.S. airports to roll out facial-recognition software to catch fake passports">used at airports</a> - what are the privacy implications of widespread facial recognition technology? For example, facial recognition software might result in an increase of those seeking plastic surgery - though <a href="https://www.newscientist.com/article/mg21328476-300-software-could-spot-face-changing-criminals/" target="_blank" title="Software could spot face-changing criminals">computer scientists have already thought of this</a>.</li>
+                                        <li>What are the consequences of identifying images incorrectly? This could lead to the wrong person being arrested for a crime, accidents caused by self-driving cars, drones targeting innocent people, incorrect medical diagnoses, and so on. This is not just a matter of improving technology; we also know that images can be manipulated, and computers can be "fooled" into mis-identifying images.</li>
+                                    </ul>
+                                </li>
+                                <li>The optional Take It Further prompts encourage students to explore some key AI ideas. </li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 2: Robots and Humans.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Learn about uses of robots and robotics design.</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+								<li>
+                                    You can choose whether or not you want the first activity to have a competitive element. The goal is to get students to see that most robots are designed to do one thing, and that a lot goes into getting robots to perform relatively simple tasks.
+                                    <ul>
+                                        <li>As a way of collecting this information, you might have a shared spreadsheet where students can contribute the name of the activity and a link to the video (or image).</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    These prompts are each about a different field and its connection to robotics. Depending on your class, you may:
+                                    <ul>
+                                        <li>choose just one of the topics, have everyone find interesting articles, and come together for a class discussion.</li>
+                                        <li>have individuals or pairs choose a prompt, find articles, then share a short summary of what they found.</li>
+                                        <li>put students in 3 small groups, one per topic, and have the students work on researching the topic and presenting it to the class.</li>
+                                        <li>give students the chance to look briefly through these examples, then ask them to choose one of these topics or choose their own topic and come up with a list of interesting articles, which can be collected on a shared document.</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Additional Activity: Robot Video (or Image) Hunt
+                                    <ul>
+                                        <li>Many robots are good at doing one specific task (like "making toast" or "climbing a ladder").</li>
+                                        <li>
+                                            With their partners, ask students to:
+                                            <ul>
+                                                <li>Think of a specific activity and find a video of a robot doing that activity (make sure it's actually a robot and not a human dressed like a robot or a cartoon of a robot).</li>
+                                                <li>Think of at least 3 activities that you think no other pair of students has thought of (keep the videos open on different tabs on your computer).</li>
+                                            </ul>
+                                        </li>
+                                        <li>As a class, see how many unique robot activities students have found.</li>
+                                    </ul>
+                                </li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 3: Implications of AI.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+                				<li>Consider some ethical issues of AI.</li>
+                            </ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+								<li>The three prompts are unrelated, and could each lead to substantial discussion. Pick and choose the topics you think the class would enjoy discussing.</li>
+                                <li>
+                                    The first prompt asks students to consider humanoid robots. Students can discuss:
+                                    <ul>
+                                        <li><em>Should</em> people be trying to build robots that look like humans?</li>
+                                        <li>What about prosthetic devices? Does it make sense to build prosthetic devices that are human-like? Then imagine a future where more and more of the body can be replaced by prosthetic parts. This might make us think - what makes us "human"?</li>
+                                        <li>This is not just a question for the future. For example, consider how we name digital assistants: <a href="http://www.theatlantic.com/technology/archive/2016/03/why-do-so-many-digital-assistants-have-feminine-names/475884/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A%20AtlanticScienceAndTechnology%20%28The%20Atlantic%20-%20Technology%29" target="_blank" title="Why Do So Many Digital Assistants Have Feminine Names?">Why Do So Many Digital Assistants Have Feminine Names?</a> What do our choices about names and images say about our values and how they get translated into technology?</li>
+                                        <li>There are many tasks at which robots are better than humans. What does it mean not only to have humanoid robots, but humanoid robots that are superior to humans in some ways?</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    The second prompt is actually a series of questions about the ethics of AI. There are several options for how to structure discussions:
+                                    <ul>
+                                        <li>
+                                            Choose one question and discuss as a class.
+                                            <ul>
+                                                <li>Don't let students get trapped in either/or dilemmas if there are alternatives not under discussion. For example, in the question about preferring the life of the passenger or the life of a pedestrian, a better answer than either of those is "the car must not get into such situations; it has already failed in its ethical duty if the question arises, so it's not surprising that there's no good answer." The same is true for human drivers, isn't it? That's why they teach defensive driving.</li>
+                                            </ul>
+                                        </li>
+                                        <li>Choose one question, identify different positions or stakeholders, and stage a debate in the class.</li>
+                                        <li>Have students write an opinion piece based on one of these questions.</li>
+                                        <li>Have students write a fictional piece about a moral/ethical dilemma of AI or robotics.</li>
+                                    </ul>
+                                </li>
+                                <li>The third prompt raises the issue of bias in AI. This topic may raise strong feelings. Prepare yourself by reading up on the issue (and any recent developments) before class.</li>
+                                <li>
+                                    The last prompt is intended to end the discussion of AI and robotics on a positive note. It is also meant to encourage students to see themselves in roles that help shape the future in these fields. Students may:
+                                    <ul>
+                                        <li>Write a short essay answering this prompt.</li>
+                                        <li>Deliver a short (3-minute) speech to answer the prompt, either live to the class or as a video.</li>
+                                        <li>Have a whole-class discussion in which students first call out technologies that interest them, and then go through the list together, identifying benefits and ways to minimize risks.</li>
+                                    </ul>
+                                </li>
+                        	</ul>
+						</li>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 4: Recent Breakthroughs.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+                				<li>See that many challenges and opportunities exist in the field.</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+								<li>Students choose a topic, then find articles that relate AI to the topic. Try to encourage students to find examples that aren't just about robots, since the next page in the Lab focuses on robots.</li>
+                                <li>
+                                    Depending on how much class time you want to devote, you might have students:
+                                    <ul>
+                                        <li>share a 30-second summary of one of their findings.</li>
+                                        <li>contribute to a shared class document of links to interesting articles.</li>
+                                        <li>make a slide presentation of the articles they found. They can have one slide per article, then a concluding slide about challenges that remain or positive and negative consequences.</li>
+                                        <li>get in small groups and share their findings and discuss challenges and positive and negative consequences.</li>
+                                    </ul>
+                                </li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+
+		<!--<h3>Assignments</h3>
+		<div>
+			<ul>
+				<li>...</li>
+			</ul>
+		</div>-->
+
+			
+		<h3>edX BJC Videos</h3>
+        <div class="sidenote">
+            <strong>No YouTube access at your school?</strong><br />
+            Try these <a href="/bjc-r/cur/teaching-guide/resources/video-list-scratch.html" title="edX BJC Videos (Alternate Links)">Alternate Links</a>.
+        </div>
+        <div>
+        	<ul>
+				<li><a href="https://www.youtube.com/watch?v=zf6GoJML65Y&index=16&list=PLno6_GYnQv_RV2fPUIYFG33Ue5C1e4X56" target="_blank" title="edX Video- Artificial Intelligence Part 1">Artificial Intelligence Part 1</a></li>
+                <li><a href="https://www.youtube.com/watch?v=f2I1J1uQj4M&index=17&list=PLno6_GYnQv_RV2fPUIYFG33Ue5C1e4X56" target="_blank" title="edX Video- Artificial Intelligence Part 2">Artificial Intelligence Part 2</a></li>
+                <li><a href="https://www.youtube.com/watch?v=WcaHGrhRa_U&index=18&list=PLno6_GYnQv_RV2fPUIYFG33Ue5C1e4X56" target="_blank" title="edX Video- Artificial Intelligence Part 3">Artificial Intelligence Part 3</a></li>
+                <li><a href="https://www.youtube.com/watch?v=B00h89L2Kus&index=19&list=PLno6_GYnQv_RV2fPUIYFG33Ue5C1e4X56" target="_blank" title="edX Video- Artificial Intelligence Part 4">Artificial Intelligence Part 4</a></li>
+                <li><a href="https://www.youtube.com/watch?v=PwP2WghaZBY&index=20&list=PLno6_GYnQv_RV2fPUIYFG33Ue5C1e4X56" target="_blank" title="edX Video- Artificial Intelligence Part 5">Artificial Intelligence Part 5</a></li>
+            </ul>
+        </div>
+		
+        
+        <h3>Solutions</h3>
+        <div w3-include-html="/bjc-r/utilities/includes/3-solutions.txt"></div><script>w3.includeHTML();</script>
+			
+			
+		<h3>Correlation with 2020 AP CS Principles Framework<a name="AP" class="anchor">&nbsp;</a></h3>
+        <div class="apStandards">
+            <h4>Computational Thinking Practices: Skills</h4>
+            <ul>
+                <li><strong>5.C:</strong> Describe the impact of a computing innovation.</li>
+                <li><strong>5.E:</strong> Evaluate the use of computing based on legal and ethical factors.</li>
+            </ul>
+            <h4>Learning Objectives:</h4>
+            <ul>
+                <li><strong>IOC-1.A:</strong> Explain how an effect of a computing innovation can be both beneficial and harmful. (5.C)</li>
+                <li><strong>IOC-1.D:</strong> Explain how bias exists in computing innovations. (5.E)</li>
+            </ul>
+            <h4>Essential Knowledge:</h4>
+            <ul>
+                <li>
+                    <strong>IOC-1.B.1:</strong> Computing innovations can be used in ways that their creators had not originally intended:
+                    <ul>
+                        <li>Machine learning and data mining have enabled innovation in medicine, business, and science, but information discovered in this way has also been used to discriminate against groups of individuals.</li>
+                    </ul>
+                </li>
+                <li><strong>IOC-1.D.1:</strong> Computing innovations can reflect existing human biases because of biases written into the algorithms or biases in the data used by the innovation.</li>
+                <li><strong>IOC-1.D.2:</strong> Programmers should take action to reduce bias in algorithms used for computing innovations as a way of combating existing human biases.</li>
+                <li><strong>IOC-1.D.3:</strong> Biases can be embedded at all levels of software development.</li>
+                <li>
+                    <strong>IOC-1.F.11:</strong> Computing innovations can raise legal and ethical concerns. Some examples of these include:
+                    <ul>
+                        <li>the development of algorithms that include bias</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+	</body>
+</html>

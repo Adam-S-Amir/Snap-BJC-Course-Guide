@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="/bjc-r/llab/loader.js"></script>
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+		<title>Unit 1 Lab 3 Teacher Guide</title>
+    </head>
+    
+    <body>
+        <h2>Lab 3: Modern Art with Polygons</h2>
+        <div class="todo">Mary still needs to review/revise this page. --MF, 5/26/20</div>
+        <div class="todo">There is a lot of todo and commented out text on this page. To be cleaned up next year. --MF, 12/19/17<p>Brian, can we cut the text at the bottom after the standards? --MF, 11/15/19</p></div>
+        <div class="todo">the TG has to make the plan more explicit: Paul's brilliant invention of pinwheel was to get around the whole exterior-angle problem by making the turning angle visible on the stage.  Once kids understand the turning angle, /then/ you draw polygons as a limiting case of pinwheels. [Teachers should not, but may be inclined to, adapt by] starting with polygons and /then/ doing pinwheels. [This] totally misses the point of pinwheels. --MF, 1/8/19 (Adaptation of BH email)</div>
+        <div class="todo">The following HTML needs cleanup (Mary), and Brian, the images need alt/title tags. --MF, 11/15/19</div>
+        <img class="imageRight" src="/bjc-r/img/1-introduction/draw-square.png" alt="pen down; repeat (4) {move (50) steps; turn clockwise (90) degrees}" title="pen down; repeat (4) {move (50) steps; turn clockwise (90) degrees}" />
+        <p>
+            In this lab, students use a sprite not as a character in an animation, but to draw pictures on the stage, using turtle graphics. They also have the opportunity to mimic the work of famous artists.
+            <ul>
+                <li>
+                    Squares are easy, because right angles are familiar, and because the turning angle is equal to the interior angle. But that's not the case for other regular polygons. Many students' first attempt (page 1) will look like this:<br />
+                    <img class="indent" src="/bjc-r/img/1-introduction/half-hex-code.png" alt="repeat 3 {move 100 steps, turn right 60 degrees"><img src="/bjc-r/img/1-introduction/half-hex-pic.png" alt="three sides of a hexagon">
+                    <br />
+                    To help them, we start with an easier problem (page 2): Find the turning angle for asterisks with different numbers of spokes:<br />
+                    <img class="indent noshadow" src="/bjc-r/img/1-introduction/Three-spokes.png"  alt="three-spokes" title="three-spokes" />
+                    <img class="noshadow" src="/bjc-r/img/1-introduction/Five-spokes.png"  alt="five-spokes" title="five-spokes" />
+                    <img class="noshadow" src="/bjc-r/img/1-introduction/Eight-spokes.png"  alt="eight spokes" title="eight spokes" /><br />
+                    Here it's obvious that the total turning angle is 360°, that the angles between spokes are equal (in each asterisk), and that therefore each turn must be 360°/<em>n</em>, where <em>n</em> is the number of spokes.<br />
+                    But it's <em>not</em> obvious how this is connected with the polygon problem. To help, we introduce an intermediate shape, the <em>pinwheel:</em><br />
+                    <img class="indent noshadow" src="/bjc-r/img/1-introduction/Blockswith-Inputs_img/3.png"  height="120" alt="pinwheel with 3 branches" title="pinwheel with 3 branches" />
+                    <img class="noshadow" src="/bjc-r/img/1-introduction/Blockswith-Inputs_img/4.png"  height="120" alt="pinwheel with 4 branches" title="pinwheel with 4 branches" />
+                    <img class="noshadow" src="/bjc-r/img/1-introduction/Blockswith-Inputs_img/5.png"  height="120" alt="pinwheel with 5 branches" title="pinwheel with 5 branches" />
+                    <img class="noshadow" src="/bjc-r/img/1-introduction/Blockswith-Inputs_img/6.png"  height="120" alt="pinwheel with 6 branches" title="pinwheel with 6 branches" />
+                    <img class="noshadow" src="/bjc-r/img/1-introduction/Blockswith-Inputs_img/12.png" height="120" alt="pinwheel with 12 branches" title="pinwheel with 12 branches" /><br />
+                    Just as in the asterisk, each spoke of the pinwheel is made by moving forward and then backward. But what's new in the pinwheel is that the backward motion is smaller than the forward motion, so the next spoke starts partway up the previous spoke. The important pedagogic point is that the turning angle is still visible in the picture:<br />
+                    <img class="indent noshadow" src="/bjc-r/img/1-introduction/racecar.gif" width="232" height="216" alt="animation of turning through exterior angles of pinwheel"><br />
+                    Students then draw polygons as the limiting case of a pinwheel in which the backward motion is zero steps.<br />
+                    At the same time, they are learning how to write and use their own procedures <em>with inputs.</em> This is another step in their understanding of abstraction: In Lab 2 they captured a repeated action by giving it a name, and in this lab they learn that they can <em>generalize</em> a script by making it a custom block with inputs, so that it can do something a bit different each time it's used.
+                </li>
+                <li>
+                    This lab includes Take It Further activities in which students can mimic the work of various artists based on polygons:<br />
+                    <table width="100%">
+                        <tr>
+                            <td width="5%">&nbsp;</td>
+                            <th>Josef Albers</th>
+                            <th>Vassily Kandinsky</th>
+                            <th>Kazimir Malevich</th>
+                            <th>Alma Thomas</th>
+                        </tr>
+                        <tr>
+                            <td width="5%">original</td><th><img src="/bjc-r/img/1-introduction/Josef_Albers's_painting_'Homage_to_the_Square',_1965.jpg" height="130" alt="painting-by-Josef-Albers" title="painting-by-Josef-Albers" /></th>
+                            <th><img src="/bjc-r/img/1-introduction/kandinsky-several-circles.jpg" height="180" alt="painting-by-Kandinsky" title="painting-by-Kandinsky" /></th>
+                            <th><img src="/bjc-r/img/1-introduction/1024px-Suprematist_Composition_-_Kazimir_Malevich.jpg" height="180" alt="painting-by-Malevich" title="painting-by-Malevich" /></th>
+                            <th><img src="/bjc-r/img/1-introduction/GraphicArt_img/AlmaThomas2.jpg" height="150" alt="Alma Thomas" title="Alma Thomas"/></th>
+                        </tr>
+                        <tr>
+                            <td width="5%">BJC</td>
+                            <th><img alt="Albers-style nested squares" title="Albers-style nested squares" src="/bjc-r/img/1-introduction/bh/Stage (22).png" width="200">&nbsp;</th>
+                            <th><img alt="Kandinsky-style overlapping circles" title="Kandinsky-style overlapping circles" src="/bjc-r/img/1-introduction/Kandinsky/Stage (3).png">&nbsp;</th>
+                            <th><img src="/bjc-r/img/1-introduction/Malevich/malevich01.png" alt="Malevich-style Snap! drawing of overlapping rectangles" title="Malevich-style Snap! drawing of overlapping rectangles" />&nbsp;</th>
+                            <th><img src="/bjc-r/img/1-introduction/Thomas/Stage (19).png" alt="Thomas-style Snap! drawing of brick-red background with meandering white lines of vaious widths leaving irregular brick-red spaces" title="Thomas-style Snap! drawing of brick-red background with meandering white lines of vaious widths leaving irregular brick-red spaces" ></th>
+                        </tr>
+                    </table><br />
+                    Don't <em>assign</em> these activities; they're all time-consuming, open-ended, and not scaffolded.  But they're a way for interested students to get past doing finger exercises because we told them to; make sure students notice them, and support those students who choose them, e.g., by arranging computer time for them outside of regular class meetings.
+                </li>
+            </ul>
+        </p>
+
+               
+        <!--<p>Students build experience with loops and conditionals without yet formalizing. Resist the urge to "teach" these concepts at the outset; instead, allow students to learn how these work <em>in context</em>, applying them to their programs. Students will get lots of experience with loops and conditionals and will codify this learning later.</p>-->
+		
+        
+        <h3>Pacing:</h3>
+        <div>
+			The 6 lab pages could be split across 3&ndash;6 days (<strong>115&ndash;230 minutes</strong>). Expected times to complete follow:
+			<ul>
+				<li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/1-introduction/3-drawing/1-exploring-motion.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 1: Exploring Motion">Exploring Motion</a></li>
+				<li>20&ndash;40 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/1-introduction/3-drawing/2-exploring-snap-drawing-motion.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 2: Angles and Turning">Angles and Turning</a></li>
+				<li>25&ndash;50 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/1-introduction/3-drawing/3-blocks-with-inputs.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 3: Blocks with Inputs">Blocks with Inputs</a></li>
+				<li>20&ndash;40 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/1-introduction/3-drawing/4-modify-your-pinwheel.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 4: Modify Your Pinwheel">Modify Your Pinwheel</a></li>
+				<li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/1-introduction/3-drawing/5-remix-your-pinwheel.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 5: Using Pinwheel to Make Polygon">Using <code>Pinwheel</code> to Make <code>Polygon</code></a></li>
+				<li>20&ndash;40 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/1-introduction/3-drawing/6-the-for-block.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 6: Looping with a Counter">Looping with a Counter</a></li>
+			</ul>
+		</div>
+    
+    
+        <h3>Lab Pages</h3>
+		<div>
+			<ul>
+				<li>
+					<strong>Page 1: Exploring Motion.</strong>
+                    <ul>
+						<li>
+                            <strong>Learning Goals:</strong>
+                            <ul>
+                                <li>Use the <code>repeat</code> block to carry out the same action several times.</li>
+                                <li>Control the relative sprite movement with the <code>move</code> block.</li>
+                                <li>Control the relative sprite direction with the <code>turn</code> block.</li>
+                                <li>Set the pen thickness <!--and color--> with the <!--appropriate blocks in the pen palette--> <code>set pen size</code> block.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>To launch this lab</strong>&mdash;Make a Prediction: <a href="https://docs.google.com/document/d/1UlHWatINw9crcqeA0hjDb1n-toPSNtmSfegBM5zXCbw/edit?usp=sharing" target="_blank" title="Make a Prediction: Repeat, Move, Turn">Repeat, Move, Turn</a>
+                            <ul>
+                                <li>Project the script and ask students to predict what it does (discuss in small groups and/or as a class).</li>
+                                <li>Discussion: Ask students "How do programs implement algorithms?" Listen for students to recognize that programs <em>execute instructions in order (sequentially)</em> and <em>process each next step automatically</em>.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+                            <ul>
+                                <li>The first page of this lab gives students a simple script to draw a square and asks them to experiment with it, changing various numbers in the script and observing the results. Students who are accustomed to being told exactly what to do may flounder. Tell them that <em>creativity</em> is one of the Big Ideas of Computer Science Principles and that in this sort of exploratory lesson there are <em>no wrong answers</em>.</li>                                
+                            </ul>
+                        </li>
+					</ul>
+                </li>
+                <li>
+					<strong>Page 2: Angles and Turning.</strong>
+                    <ul>
+                    	<li>
+                            <strong>Learning Goals:</strong>
+                            <ul>
+                                <li>Explore the concept of turning angle through experimentation.</li>
+                                <li>Adapt simple scripts by changing the inputs.</li>
+                                <li>Work with multiple constraints to achieve a desired outcome.</li>
+                            </ul>
+                        </li>
+                        <li>
+                        	<strong>Tips:</strong>
+                            <ul>
+                                <li>This page is a prelude for the upcoming pages and is an opportunity for students to experiment and make discoveries on their own.</li>
+                                <li>
+                              A recent update to Chrome introduced a bug that affects the Snap! <code>set pen color to</code> block with the square picture of the actual color (not the block with a color <em>number</em>). This is fixed in Chrome version 78.							  </li>
+                          </ul>
+                      </li>
+                    </ul>
+                </li>
+                <li>
+					<strong>Page 3: Blocks with Inputs.</strong>
+                    <div class="todo">Brian, is this commented code still needed? If not, could you please remove it? --MF, 11/15/19</div>
+                    <!--<div class="todo">
+                        <p><strong>What you will do:</strong> Turn the scripts you have built into a single block, with an input, that draws squares, triangles, and circles. You will give it a second input to control the size. You'll make a variation that draws stars. On the next page, you'll combine these to do flags or artwork.</p>
+                        <p><img src="/bjc-r/img/1-introduction/5pt-and-7pt-stars-and-rectangle-blue.png" height="160" alt="5pt-and-7pt-stars-and-rectangle-blue">  <img src="/bjc-r/img/1-introduction/red-and-blue.png"  height="140" alt="red-and-blue">  <img src="/bjc-r/img/1-introduction/just-reds.png" height="140" alt="just-reds"> <img src="/bjc-r/img/1-introduction/ariel.png" height="140" alt="ariel"> <img src="/bjc-r/img/1-introduction/brazil-flag.png" height="160" alt="brazil-flag"></p>
+                        <p><strong>What you will learn:</strong> Abstraction—giving blocks <em>inputs</em> to let them do a wider variety of jobs.</p>
+                    </div>-->
+					<ul>
+                    	<li>
+                            <strong>Learning Goals:</strong>
+                            <ul>
+                                <li>Learn how to generalize the functionality of a block by introducing input parameters.</li>
+                                <li>Gain some initial familiarity with the concept of <em>abstraction</em> as a big idea in Computer Science.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+                            <ul>
+                                <li>This page is one of students' earliest encounters with the concept of <em>abstraction</em> in Computer Science.  Giving an input parameter to a block generalizes its functionality, enabling it to accomplish a wider variety of tasks.  Unless, this first encounter with <em>abstraction</em> is highlighted, most students may miss what a big deal it is.</li>
+                                <li>As a foreshadowing to the upcoming pages, ask students to anticipate how they can further generalize the <code>pinwheel</code> block by introducing more input parameters.</li>
+                                <li>Most students may not yet be quite ready to explore artistic applications of the <code>pinwheel</code> block as shown in the Take It Further.  These are intended as thought-provoking ideas that they can come back to later in the Unit.</li>
+                                <li>At the end of class, ask students how they drew two pinwheels on the stage. After a few suggestions, ask students to identify the most effective strategy, guiding them to conclude that using the <code>pinwheel</code> block twice is better than other options (e.g., copying and pasting the same code, creating a second block called <code>second pinwheel</code>).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+					<strong>Page 4: Modify Your Pinwheel.</strong>
+                    <ul>
+                    	<li>
+                            <strong>Learning Goals:</strong>
+                            <ul>
+                                <li>Learn how to further generalize the functionality of a block by introducing input parameters for every possible variable aspect of the block function.</li>
+                                <li>Gain some further experience with the concept of <em>abstraction</em> as a big idea in Computer Science.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+                            <ul>
+                                <li>It may be a good idea to highlight that in this page students will be further generalizing the <code>pinwheel</code> block by by introducing more input parameters.  Again, this is an example of <em>abstraction</em>.</li>
+                                <li>Some students may have difficulty creating the <var>size</var> parameter in between the <var>branches</var> and the <var>backup</var> parameters.  It may help to point them to the "+" sign in between these two parameters.</li>
+                                <li>
+                                    On the If There Is Time circle problem, some students may need help realizing that a regular polygon with a large number of sides, for example a 30-gon, is a good approximation for a circle.
+                                    
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li>
+					<strong>Page 5: Using <code>Pinwheel</code> to Make <code>Polygon</code>.</strong>
+                    <ul>
+                    	<li>
+                            <strong>Learning Goals:</strong>
+                            <ul>
+                                <li>Learn how to tailor a general-purpose procedure to create other, simpler special-purpose procedures that each do a particular job.</li>
+                                <li>Understand how to draw polygons in Snap<em>!</em>.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+                            <ul>
+                                <!--<li>Some students may find writing the <code>polygon</code> block difficult or they may not have intuition about how the code would work.  Encourage them to look at the <a href="/bjc-r/cur/programming/1-introduction/3-drawing/old/5a-polygonal-racetracks.html" target="_blank" title="Polygonal Racetracks">Polygonal Racetracks</a> activity linked in an adjacent yellow box.</li>-->
+                                <li>
+                                    On the If There Is Time circle block-building problem, the students may need help discovering what should the one input be for a <code>circle</code> block.  A natural choice for the single input would be "radius".  The students may need a reminder from the previous page that a regular polygon with a large number of sides, for example a 30-gon, is a good approximation for a circle.  The difficulty in this case will be determining the "side length" of the approximating polygon.  Students can discover this by experimenting or it may be helpful to remind them that for a regular polygon:<br />
+                                    <span class="katex indent">\text{side length} = \frac{\text{perimeter}}{\text{number of sides}} \approx \frac{2 \pi \cdot \text{radius}} {\text{number of sides}}</span>
+                                </li>
+                                <!--<li>Take It Further problem B assumes that the students already mastered the <a href="/bjc-r/cur/programming/1-introduction/3-drawing/old/5a-polygonal-racetracks.html" target="_blank" title="Polygonal Racetracks">Polygonal Racetracks</a> activity.</li>-->
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+					<strong>Page 6: Looping with a Counter.</strong>
+                    <ul>
+                    	<li>
+                            <strong>Learning Goals:</strong>
+                            <ul>
+                                <li>Learn the similarities and differences between the <code>forever</code>, <code>repeat</code>, and <code>for</code> blocks.</li>
+                                <li>Understand the power of a loop counter.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+                            <ul>
+                                <!--<li>
+                                    <img class="imageRight" src="/bjc-r/img/icons/import-tools.png" alt="Import Tools" title="Import Tools" />
+                                    The <code>for</code> block is available only after importing tools from the Snap<em>!</em> File menu. This may change in a forthcoming update to Snap<em>!</em>, but for now remind students to <strong>import tools</strong> if a block they seek appears to be missing. 
+                                </li>-->
+                                <li>Highlight that the <code> for</code> block, in addition to providing looping functionality like to the <code>forever</code> and <code>repeat</code> blocks, also provides access to the individual stages of a loop with the use of a counter; this enhances the possibilities of what can be achieved by looping.</li>
+                                <li>
+                                    <img class="imageRight" src="/bjc-r/img/1-introduction/U1ImageVideoAddendum_img/U1L3p5TG-backwardsLoop.png" height="90" alt="for (i) = (10) to (1) {say (i) for (0.5) secs}" title="for (i) = (10) to (1) {say (i) for (0.5) secs}" />
+                                    Most students may not realize that it is possible to loop backwards with the <code>for</code> block by letting the index start from a larger number and end with a smaller number as shown at right. This code will have the sprite count backwards from 10 to 1.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+			
+		<h3>Resources</h3>
+        <div>
+            <ul>
+                <li><a href="https://docs.google.com/document/d/16YzPpaVXZpKmvH3x2OOnDegcP40xSg7hDSti8kkxLO8/edit?usp=sharing" title="Unit 1 Lab 3 Guided Notes" target="_blank">Lab 3 Guided Notes</a></li>
+                <li><a href="https://docs.google.com/document/d/1F7vKHlBEOzADu61G2viG1238Xzx59cVYhqTGdkqKmLQ/edit?usp=sharing" title="Unit 1 Formative Assessment Questions" target="_blank">Unit 1 Formative Assessment Questions</a></li>
+                <li><a href="https://docs.google.com/presentation/d/1KUPz0Aw1kDc63-SYVBJZLjXcIYajxWuz13AsZhcCJ60/edit?usp=sharing" title="Unit 1 Student Programming Journal" target="_blank">Unit 1 Student Programming Journal</a></li>
+            </ul>
+        </div>
+        
+        
+        <h3>Solutions</h3>
+        <div w3-include-html="/bjc-r/utilities/includes/1-solutions.txt"></div><script>w3.includeHTML();</script>
+
+	
+		<h3>Correlation with 2020 AP CS Principles Framework<a name="AP" class="anchor">&nbsp;</a></h3>
+        <div class="apStandards">
+            <h4>Computational Thinking Practices: Skills</h4>
+            <ul>
+                <li><strong>2.A:</strong> Represent algorithmic processes without using a programming language.</li>
+                <li><strong>3.B:</strong> Use abstraction to manage complexity in a program.</li>
+                <li><strong>4.A:</strong> Explain how a code segment or program functions.</li>
+                <li><strong>4.B:</strong> Determine the result of code segments.</li>
+            </ul>
+            <h4>Learning Objectives:</h4>
+            <ul>
+                <li><strong>CRD-2.G:</strong> Describe the purpose of a code segment or program by writing documentation. (4.A)</li>
+                <li><strong>AAP-2.A:</strong> Express an algorithm that uses sequencing without using a programming language. (2.A)</li>
+                <li><strong>AAP-3.A:</strong> For procedure calls:
+                    <ol>
+                        <li>Write statements to call procedures. (3.B)</li>
+                        <li>Determine the result or effect of a procedure call. (4.B)</li>
+                    </ol>
+                </li>
+            </ul>
+            <h4>Essential Knowledge:</h4>
+            <ul>
+                <li><strong>CRD-2.B.3:</strong> A program needs to work for a variety of inputs and situations. </li>
+                <li><strong>CRD-2.G.1:</strong> <em>Program documentation</em> is a written description of the function of a code segment, event, procedure, or program and how it was developed.</li>
+                <li><strong>CRD-2.G.2:</strong> <em>Comments</em> are a form of program documentation written into the program to be read by people and do not affect how a program runs. </li>
+                <li><strong>CRD-2.G.3:</strong> Programmers should document a program throughout its development.</li>
+                <li><strong>CRD-2.G.4:</strong> Program documentation helps in developing and maintaining correct programs when working individually or in collaborative programming environments. </li>
+                <li><strong>CRD-2.G.5:</strong> Not all programming environments support comments, so other methods of documentation may be required.</li>
+                <li><strong>DAT-1.A.1:</strong> Data values can be stored in variables, lists of items, or standalone constants and can be passed as input to (or output from) procedures.</li>
+                <li><strong>AAP-2.A.1:</strong> An <em>algorithm</em> is a finite set of instructions that accomplish a specific task. </li>
+                <li><strong>AAP-2.A.2:</strong> Beyond visual and textual programming languages, algorithms can be expressed in a variety of ways, such as natural language, diagrams, and pseudocode.</li>
+                <li><strong>AAP-2.A.3:</strong> Algorithms executed by programs are implemented using programming languages. </li>
+                <li><strong>AAP-2.J.1:</strong> <em>Iteration</em> is a repeating portion of an algorithm. Iteration repeats a specified number of times or until a given condition is met.</li>
+                <li><strong>AAP-2.K.1:</strong> Iteration statements change the sequential flow of control by repeating a set of statements zero or more times, until a stopping condition is met. </li>
+                <li><strong>AAP-2.K.2:</strong> The exam reference sheet provides
+<pre>REPEAT n TIMES
+{
+    &lt;block of statements&gt;
+}</pre>
+in which the <pre class="inline">block of statements</pre> is executed <pre class="inline">n</pre> times.</li>
+                <li><strong>AAP-3.A.3:</strong> <em>Parameters</em> are input variables of a procedure. <em>Arguments</em> specify the values of the parameters when a procedure is called.</li>
+                <li><strong>AAP-3.A.4:</strong> A procedure call interrupts the sequential execution of statements, causing the program to execute the statements within the procedure before continuing. Once the last statement in the procedure (or a return statement) has executed, flow of control is returned to the point immediately following where the procedure was called.</li>
+                <li><strong>AAP-3.A.5:</strong> The exam reference sheet provides <pre class="inline">procName (arg1, arg2, …)</pre> as a way to call <pre class="inline">PROCEDURE procName(parameter1, parameter 2, …)</pre> which takes zero or more arguments; <pre class="inline">arg1</pre> is assigned to <pre class="inline">parameter1</pre>, <pre class="inline">arg2</pre> is assigned to <pre class="inline">parameter2</pre>, and so on.</li>
+                <li><strong>AAP-3.B.4:</strong> A procedural abstraction may extract shared features to generalize functionality instead of duplicating code. This allows for program code reuse, which helps manage complexity.</li>
+                <li><strong>AAP-3.B.5:</strong> Using parameters allows procedures to be generalized, enabling the procedures to be reused with a range of input values or arguments. </li>
+                <li><strong>AAP-3.B.7:</strong> Using procedural abstraction in a program allows programmers to change the internals of the procedure (to make it faster, more efficient, use less storage, etc.) without needing to notify users of the change as long as what the procedure does is preserved.</li>
+                <li><strong>AAP-3.C.1:</strong> The exam reference sheet provides 
+<pre>PROCEDURE procName(parameter1, parameter2, …)
+{
+    &lt;block of statements&gt;
+}</pre>
+which is used to define a procedure that takes zero or more arguments. The procedure contains <pre class="inline">block of statements</pre>.</li>
+            </ul>
+        </div>
+    
+        
+        <div class="todo">
+            <div class="todo"><h1>Can we delete these "old mathematical notes"? --MF, 11/4/19</h1></div>
+            Old Mathematical Notes:
+            <ul>
+            	<li>
+                    <strong>Mathematics Note: Direction.</strong> Snap! reports the direction that a sprite is facing using a system similar to that used by a magnetic compass:
+                    <ul>
+                        <li>0 is straight up, facing the top of the screen</li>
+                        <li>90 faces the right-hand side of the screen</li>
+                        <li>180 points "due south"</li>
+                        <li>270 faces the left-hand side of the screen</li>
+                    </ul>
+                    The inputs to the <code>point in direction</code> block can be any number, and this gives an opportunity to talk about different inputs to <code>point in direction</code> that produce the same effect. Try, for example, turning on the <var>direction</var> reporter in the Motion palette (it reports the direction of the sprite), but try using <code>point in direction</code> with an input of -20 and then again with an input of 340. The sprite points the same way&mdash;nothing changes&mdash;but direction reports -20 and then 340. Clearly, -20 &ne; 340, but they differ by 360:
+                    <span class="katex-block">340 = -20 + 360</span>
+                    Sprite direction is determined only up to multiples of 360, because a complete turn is 360&deg; and that brings you back to where you started. So, using inputs to <code>point in direction</code> that are multiples of 360:
+                    <span class="katex-block">0,360,720,1080,...</span>
+                    will all bring you back to pointing straight up, and similarly, inputs that are, say, 75 more than these:
+                    <span class="katex-block">75,75+360,75+720,75+1080,...</span>
+                    <img class="imageRight" src="/bjc-r/img/1-introduction/75-equals-435-mod-360-reporting.png" alt="(75) = ((435) mod (360)) reporting true" title="(75) = ((435) mod (360)) reporting true" />
+                    will all do the same thing as <code>point in direction</code> with an input of 75. The mathematical shorthand for this is to say something like "75 is the same as 435 <em>modulo</em> 360, which can be expressed in Snap<em>!</em> as shown at right. (The word modulo was introduced by Gauss as a way to say "except for multiples of." These days, the meaning is often used in other ways, like "The game will take place today, modulo rain.")
+                </li>
+                <li>
+                    <strong>Mathematics Note: Circles.</strong> You sometimes hear people say "a circle is a polygon with an infinite number of sides." This isn't true in any precise sense, but it is true that a circle can be <em>approximated</em> by a polygon with many sides, each very short in length. This is similar to what children do when the walk around a circle&mdash;they take many small steps. And this is how Snap<em>!</em> models circles&mdash;it creates a polygon with many small turns and steps. For example:<br />
+                    <img class="indent" src="/bjc-r/img/1-introduction/circle-script.png" alt="repeat (360) [move (1) steps, turn right (1) degrees]" title="repeat (360) [move (1) steps, turn right (1) degrees]" />
+                    <img class="indent noshadow" src="/bjc-r/img/1-introduction/circle.png" alt="sprite drawing a circle" title="sprite drawing a circle" /><br />
+                    This looks very much like a circle, but it's really a polygon with 360 sides, all of length 1 step.<br />In particular, you can apply facts about circles to these Snap<em>!</em> approximations, and they work quite well. For example, in the Take it Further challenge, the diameter of the red circle is 100. The circumference (perimeter) of a circle is &pi; times its diameter. If your students know this fact, then they can reason that the circumference of the red circle is 100&pi;. Using the approximation 3.14 for &pi;, the circumference is approximately 314. So, if we want to cover this distance in 360 steps, the step size should be <span class="katex">\frac{314}{360}</span>. Snap<em>!</em> can do the calculation for us.<br />
+                    <img class="indent" src="/bjc-r/img/1-introduction/circle-squared-script.png" alt="set pen color to (blue), repeat (4) [move (100) steps, turn right (90) degrees], move (50) steps, set pen color to (red), repeat (360) [move ((314) / (360)) steps, turn right (1) degrees]" title="" />
+                    <img class="indent noshadow" src="/bjc-r/img/1-introduction/circle-squared.png" alt="sprite drawing a square and then a circle" title="sprite drawing a square and then a circle" />
+                </li>
+			</ul>
+        </div>
+        
+        
+    </body>
+</html>

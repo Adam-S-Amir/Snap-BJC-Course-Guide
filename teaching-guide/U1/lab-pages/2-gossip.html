@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="/bjc-r/llab/loader.js"></script>
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+		<title>Unit 1 Lab 2 Teacher Guide</title>
+	</head>
+
+	<body>
+		<h2>Lab 2: Gossip</h2>
+        <p>In Labs 2 and 3, students learn a new idea: not only can they assemble existing blocks (code) to create sequences (scripts), they can also encapsulate an entire script into a single new block of their own design, which they can then use as if that block had always existed. This process—one aspect of <em>abstraction</em>—is basic to computer science. Students will see how a multi-part script can be "hidden" inside a block (so students don't need to see all the details of the block while using it) and given a name (so they can easily know what it does and can use it more than once).</p>
+        <p>In  this lab, students program two sprites to gossip with each other, picking randomly from words and ideas that students specify. The context is whimsical&mdash;students generally enjoy teaching a computer to gossip and find the results funny&mdash;but the ideas they are learning are deep. Getting a computer to generate (and understand) natural language has been the serious work of computer scientists for decades; Siri is one of the results. Students first experiment with blocks that have been built for them, seeing what they do. Then they learn to <em>edit</em> and <em>modify</em> these blocks. Finally, they <em>create</em> a new block of their own by using the same structure they've seen in the blocks they've edited but now with new content. In doing so, they will learn how to create lists of data, select data from those lists, and combine data in new ways. In Lab 3, they will extend this knowledge to another aspect of abstraction&mdash;learning how to give blocks inputs.</p>
+        
+        
+		<h3>Pacing</h3>
+        <div class="sidenote">These estimates are for the lab pages only. Additional time will be required for Computing in the News or other activities.</div>
+		<div>
+			The 5 lab pages could be split across 2&ndash;4 days (<strong>90&ndash;180 minutes</strong>). Expected times to complete follow:
+			<ul>
+				<li>30&ndash;45 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/1-introduction/2-gossip-and-greet/1-pair-programming.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 1: Pair Programming">Pair Programming</a></li>
+				<li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/1-introduction/2-gossip-and-greet/2-gossip.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 2: Making Programs Talk">Making Programs Talk</a></li>
+				<li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/1-introduction/2-gossip-and-greet/3-customizing.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 3: Customizing and Debugging">Customizing and Debugging</a></li>
+				<li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/1-introduction/2-gossip-and-greet/4-making-a-new-block.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 4: Making Your Own Block">Making Your Own Block</a></li>
+				<li>25&ndash;45 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/1-introduction/2-gossip-and-greet/5-if-else.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 5: Adding Variety to Gossip">Adding Variety to <code>Gossip</code></a></li>
+			</ul>
+		</div>
+        
+        
+        <h3>Prepare</h3>
+        <div>
+            <ul>
+                <li>Prepare several <a href="/bjc-r/cur/teaching-guide/U1/general-support/computing-in-the-news.html?topic=nyc_bjc%2F1-teaching-guide.topic&course=bjc4nyc_2015-2016_teacher.html&novideo&noassignment" title="Computing in the News">Computing in the News</a> stories.</li>
+				<li>
+                    Print "Lost on the Moon" handouts, one of each per student:
+                    <ul>
+                        <li><a href="/bjc-r/img/1-introduction/lost-on-moon.pdf">Introductory handout (2-sided PDF)</a></li>
+                        <li><a href="/bjc-r/img/1-introduction/lost-on-moon-solution.pdf">Solutions handout (one side)</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> 
+
+		
+        <h3>As a Class</h3>
+		<div>
+            <ul>
+                <li>Now is the time for classroom management and introduction to any other classroom technology students will use.</li>
+                <li>Be sure students understand that they are expected to read all the material presented on a white background and complete all the exercises on a white background. Yellow boxes are optional reading; some longer ones are hidden behind a  link. Supplemental "If There Is Time..." and "Take It Further" exercises are provided for students to work on after finishing the required reading and problems. "If There Is Time..." exercises are generally about as difficult as the required exercises, but "Take It Further" exercises are often harder. Additional information about the design cues can be found in the <a href="/bjc-r/cur/teaching-guide/U1/overview.html?course=bjc4nyc_teacher.html&novideo&noassignment" title="Introduction to Teacher Guide">Introduction to Teacher Guide</a>.</li>
+            </ul>
+        </div>
+        
+        
+        <h3>Lab Pages</h3>
+        <div>
+            <ul>
+				<li>
+					<strong>Page 1: Pair Programming.</strong>
+					<ul>
+						<li>
+                            <strong>Learning Goal:</strong> Begin the use of pair programming and understand the value of this way of working.
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+                            <ul>
+                            	<li>
+                                    Some students may resist pair programming, arguing that they work better alone. Tell them to give pair programming an honest try during the first lab or two, and <em>then</em> you'll entertain ideas about modifying the way the pair works if they still want that.
+                                    <ul>
+                                        <li>Programmers in industry often work in pairs, but the specific driver/navigator structure of pair programming isn't really how they do it, for the most part.  Programmers who are accustomed to working collaboratively find ways to fit together that take advantage of each person's strong points, and they change styles of work depending on the specific task&mdash;is it coding, or data design, or documentation?  Pair programming is a simplified type of collaboration that lets students experience different roles in a team.  If students complain that it feels artificial, you can agree, and explain that it's like beginning at any other skill: You do it in a precise way, following all the rules to the letter.</li>
+                                    </ul>
+                                </li>
+                                <li>Visit <a href="http://csteachingtips.org/tips-for-pair-programming" target="_blank" title="csteachingtips.org">csteachingtips.org</a> for more suggestions on pair programming.</li>
+								<li>
+                                    <strong>Lost on the Moon.</strong>  This is an exercise in cooperation. Almost every time, the group does better than any of its individuals, so it helps convince students that cooperation works.
+                                    <ul>
+                                        <li><em>"What does this have to do with computer science?"</em>  The subject matter of the exercise (astronaut survival) was deliberately chosen as one that none of the students is likely to know anything about.  (By contrast, it's quite likely that some of your students have experience with programming while others won't have had that experience.)</li>
+                                        <li>
+                                            How it works: Divide the class into groups of three or four.  (Four is better because even numbers discourage voting.)  The first part of the exercise is individual; if you want, you can defer organizing groups until after that.
+                                            <ol>
+                                                <li>Hand out the first handout with the list of supplies facing up.  Read the introductory paragraph with the class.</li>
+                                                <li>Students work individually for 10-15 minutes.  They organize the items in order of importance to survival with 1 for the most important item and 15 for the least important.</li>
+                                                <li>
+                                                    Tell them to turn the sheet over.  Read the suggestions about cooperation with them. These suggestions may feel counterintuitive as they go against the "hidden curriculum" of society.
+                                                    <ul>
+                                                        <li><strong>It's not a competition.</strong> We live in a competitive culture. Young people will have a learned instinct to treat an exercise like this one as a competition. Encourage students to push beyond the winning vs. losing mentality.</li>
+                                                        <li><strong>Consensus not compromise.</strong> Encourage students to focus on understanding each other's <em>reasons.</em> and to look for solutions that respect both reasons, rather than "splitting the difference" of the actual answers.</li>
+                                                        <li><strong>Better vs. more popular.</strong> Voting makes sense when the voters have different interests: employer vs. worker, farmer vs. programmer, etc.  In those situations, voting is a sort of nonviolent warfare; the stronger team wins.  But when you're all on the same team, voting is not a good way to make decisions because there's no guarantee that the initially most popular idea is the <em>best</em> idea.</li>
+                                                        <li><strong>Cooperation doesn't mean to let someone else have their way.</strong> Just as it's not about winning, it's not about losing. Students should pay attention to the ideas and the reasoning behind the ideas rather than to the politics of whose ideas they are. Good reasons for decision-making should be persuasive, not loud voices.</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Now divide the class into groups, and have them do the same exercise again.  Their goal is to get the best possible answers for their group.  Give them 10 minutes.</li>
+                                                <li>Now hand out the official NASA solutions.  Both group and individual scores are computed by, for each item, computing the (absolute value of the) difference between the student ranking and the NASA ranking, then adding the 15 item scores.  A low score is good.</li>
+                                                <li><em>Debriefing.</em>  Expect a lot of "it's not fair" complaints.  "It's not fair; how were we supposed to know there's no magnetic field on the moon?"  Don't get defensive; remind students that the exercise deliberately asks about a topic nobody in the class has studied or experienced.  You'd expect that individual and group scores would both be random.  And yet, even in this extreme situation, groups beat individuals.  Be sure that the fairness complaints don't prevent that comparison by taking all the time.  First have them guess how many students did better than their groups.  Then find out:  "Hands up if your individual score was better than your group score."  There won't be very many hands.  It's really remarkable how well this works; typically <em>every</em> student does worse than their group.</li>
+                                            </ol>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+					<strong>Page 2: Making Programs Talk.</strong>
+					<ul>
+						<li>
+                            <strong>Learning Goals:</strong> 
+                            <ul>
+                                <li>Try out code to see what it does.</li>
+                                <li>Analyze code to see how it works.</li>
+                            </ul>
+                        </li>
+						<li>
+                            <strong>Tips:</strong>
+                            <ul>
+                                <li>Some of the sentences that the program makes are silly, such as "my cat  loves my cat"; encourage students to enjoy that rather than trying to  "fix" it. </li>
+                                <li>The starter project shows Snap<em>!</em> code with comments attached. Some students may <em>want</em> to comment some of their code, for their own information, but please don't <em>require</em> students to do so. This isn't a software engineering course preparing students for the workforce. Keep the focus in this first course on the beauty and joy.  In fact, if the question comes up, you should tell students that code written to teach, as in this project, will be <em>more</em> heavily commented than "real" production code. Comments on every block restating what it does in English make the code harder, not easier, to read.  One comment, at the beginning of a definition, can be useful to describe the intended purpose of the block and/or its domain and range.
+                                    <ul>
+                                        <li>
+                                            A comment attached to the hat block at the beginning of the script in its definition will be used as the help text, if a user of the block selects "Help" from its context menu.<br />
+                                            <img class="indent" src="/bjc-r/img/1-introduction/comment-in-editor.png" alt="Block Editor window with a comment attached to the hat block of the procedure" title="Block Editor window with a comment attached to the hat block of the procedure" />
+                                            <img class="indent" src="/bjc-r/img/1-introduction/comment-as-help.png" alt="Help window for a custom block showing the text from a comment attached to its hat block inside the Block Editor" title="Help window for a custom block showing the text from a comment attached to its hat block inside the Block Editor" />
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>In this lab, most of the actual directions for students are in the project starter file, rather than on the lab page.  BJC doesn't always use this approach, but its virtue is that students don't have to move their heads back and forth between the lab page and the project itself.</li>
+                                <li>This page introduces the term "reporter" for blocks that report a value, as opposed to command blocks that just take some action. This first exploration of these block types is not the time to teach vocabulary; just use the appropriate words yourself.  Formal definitions come later.</li>
+                                <li>Making Sprite(2) tell Sprite to respond is a tentative introduction to <em>recursion</em>, here using <code>broadcast</code> blocks rather than procedure calls. As with "reporter," this is just a first taste. Formal introduction will come later.</li>
+                            </ul>
+                        </li>
+					</ul>
+				</li>
+				<li>
+                    <div class="todo">Ideas for Brian and Mary to integrate:
+                        <ul>
+                            <li>"Don't make kids stop and memorize vocab." (for page 3)</li>
+                        </ul>
+                    </div>
+					<strong>Page 3: Customizing and Debugging.</strong>
+					<ul>
+						<li>
+                        	<strong>Learning Goals:</strong>
+                            <ul>
+                                <img class="imageRight" src="/bjc-r/img/1-introduction/list-from-who.png" alt="list{Senora, Ms. C, my cat, Hannah, Jake}" title="list{Senora, Ms. C, my cat, Hannah, Jake}" />
+                                <li>Personalize the <code>who</code>, <code>does what</code>, and <code>who2</code> blocks by inserting phrases into the <code>list</code> blocks inside.</li>
+                                <li>Become familiar with the arrowhead notation for <em>variadic</em> blocks (ones that take a variable number of inputs, like <code>list</code>).</li>
+                                <li>Become familiar with the concept of debugging, and debug any issues that arise in the project.</li>
+                            </ul>
+                        </li>
+                        <li>
+                        	<strong>Tips: </strong>
+                            <ul>
+                                <li>Most students will be funny and not hurtful or obscene in their inventions. You don't need to preemptively protect against that, but if it happens, <em>that's</em> the time to tell the class that they should be mindful of whether everyone in the class (including you) will find something funny.</li>
+                                <li><div class="todo">This is a little awkward... --MF, 5/21/19</div>It is probably too early to talk about abstraction and name it. Students will need to see more examples of it before it needs a piece of technical vocabulary. But two of its attributes may be worth mentioning even now: one, putting <img src="/bjc-r/img/1-introduction/item-(random)-of-(list-(Senora_my-cat_more)).png" alt="item-(random)-of-(list-(Señora_my-cat_more))" title="item-(random)-of-(list-(Señora_my-cat_more))" /> inside a block named <img src="/bjc-r/img/1-introduction/who.png" alt="who" title="who" /> to make code easier to read and understand by "hiding the complexity," and two, using a simple name that describes the purpose of the code. Once we understand what <code>who</code> does and are assured that it works properly, we no longer need or want to see the guts of how it works.</li>
+                                <li>The yellow box after (not inside) FYTD 1 is important; it's yellow rather than orange because at this point the <code>report</code> block is given to them, so they don't have a chance to make this mistake.  Later, when they are writing their own blocks, misconceptions about the difference between <code>report</code> (which tells the computer some value) and <code>say</code> (which tells it to the user) are likely to come up.</li>
+                                <li><em>String</em> and <em>concatenate</em> are language from the AP exam.  BJC uses "words," "sentences," and "joining."  Make clear to students that they need to know the technical terms for the AP exam, but the more natural language is fine for real life, including real programming after the exam is behind them.</li>
+                                <li>About debugging:  These are very simple programs, and they may not have anything to debug.  But at least students should be sure of that by repeated testing.</li>
+                            </ul>
+                        </li>
+					</ul>
+				</li>
+				<li>
+					<strong>Page 4: Making Your Own Block.</strong>
+					<ul>
+                        <li>
+                        	<strong>Learning Goals:</strong>
+                            <ul>
+                                <li>Create a new <em>reporter</em> block (oval shape) called <code>gossip response</code> with the same inner structure as the three reporters included in the starter project.</li>
+                                <li>Edit the <code>gossip2</code> block to use the new block. </li>
+                            </ul>
+                        </li>
+                        <li>
+                        	<strong>Tips: </strong>
+                            <ul>
+                                <li>This page is almost all mechanics, rather than big ideas.  You might want to make sure that both students of a pair get to make a new block.</li>
+                                <li>The vocabulary box formally introduces <em>reporters</em> and <em>commands</em>. Of course students have seen these words, and examples of what they mean, before this. The distinction is important in almost every programming language, although the names used for them differ.  Some languages use "procedure" for commands and "function" for reporters.  (The latter is a slight abuse of language, since a mathematical function always returns the same value for the same inputs, and that's not true of all reporters; consider <code>random</code> as a counterexample.)  Some use "function" for both!  (This is a serious abuse of language!) Some languages, especially <em>functional</em> languages, require that <em>every</em> procedure return a value.  That makes life much simpler.  (For example, we wouldn't have to have <code>call</code> separate from <code>run</code>, or separate versions of <code>if</code> as a command and as a reporter.)  One of the few disadvantages of a graphical language is that we're stuck with the different block shapes fitting into different places in a script.</li>
+                                <li>Some additional vocabulary that we decided not to put in the student pages: A command or a reporter is a block, not a particular use of a block.  A reporter with its input slots filled in is an <b>expression</b>, and a command with its input slots filled in is an <b>instruction</b>.  It's best if you model using these words yourself, without asking students to memorize them.  This is formalized for you below.</li>
+                                <li> In the "On the AP Exam" box below, the second bullet is an AP vocabulary item, but we don't dignify it with that name because it's plainly incorrect -- procedures <em>are values</em> in themselves.  They should say "the value of a procedure <em>call</em>" or "the <em>return</em> value of a procedure call."</li>
+                            </ul>
+                        </li>
+					</ul>
+				</li>
+				<li>
+					<strong>Page 5: Adding Variety to <code>Gossip</code>.</strong>
+					<ul>
+                        <li>
+                            <strong>Learning Goals:</strong> 
+                            <ul>
+                                <li>Explore more complicated reporter that introduces conditionals and predicates.</li>
+                                <li>Experiment with and reflect on a recursive procedure.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tip:</strong> 
+                            <ul>
+                                <li>Conditionals and predicates are introduced here experientially and without any definitions. Resist the urge to "teach" these topics for now; the formalism will come in Unit 2.</li> 
+                                <li>Students also get their first taste of recursion (procedures calling themselves) as they embed <code>more complicated who</code> inside <code>more complicated who</code>. As with conditionals and predicates, these ideas do not need to be formalized yet, and mastery is not expected. Students  dabble in recursion again throughout the next few units, and the final two units (after the AP exam) address this topic in detail. </li>
+                                <li>FYTD 8-9 are another toe-dip into recursion. You are not expected to teach the word or the idea, just to be prepared for student questions about it.</li>
+                                <li>
+                                    Here is some vocabulary for <em>you</em> to use in context, not to require of students...
+                                    <div class="vocabFullWidth">: Block Types and Blocks with Inputs
+                                        <p>
+                                            Block Types:
+                                            <ul>
+                                                <li>A <strong>command</strong> is a single jigsaw-puzzle-shaped block, without its inputs. For example: <img class="inline" src="/bjc-r/img/blocks/say-empty.png" alt="say ()" title="say ()" /> and <img class="inline" src="/bjc-r/img/blocks/move-steps.png" alt="move () steps" title="move () steps" /> are commands. They tell the computer to do something.</li>
+                                                <li>A <strong>reporter</strong> is a single oval-shaped block, without its inputs. For example: <img class="inline" src="/bjc-r/img/blocks/round-a-number.png" alt="round ()" title="round ()" /> and <img class="inline" src="/bjc-r/img/blocks/mouse-x.png" alt="mouse x" title="mouse x" /> are reporters. They report data.</li>
+                                                <li>
+                                                    A <strong>predicate</strong> is a single hexagonal block, without its inputs. For example: <img class="inline" src="/bjc-r/img/blocks/touching.png" alt="touching ()?" title="touching ()?" /> and <img class="inline" src="/bjc-r/img/blocks/less-than.png" alt="() &lt; ()" title="() &lt; ()" /> are predicates. They are reporters that report only Boolean values.
+                                                    <ul>
+                                                        <li>A <strong>Boolean value</strong> is <img src="/bjc-r/img/blocks/true.png" alt="true" title="true"> or <img src="/bjc-r/img/blocks/false.png" alt="false" title="false">. (These are different values from the text strings "true" and "false"; they are also different from 0 and 1.)</li>
+                                                    </ul>
+                                                </li>
+                                                <div class="todo">I don't think this parenthetical about Boolean values is clear. --MF, 4/18/19  Fixed? -bh</div>
+                                            </ul>
+                                        </p>
+                                        <p>
+                                            Blocks with Inputs:
+                                            <ul>
+                                                <li>An <strong>instruction</strong> is a command block along with its inputs or input expressions. For example: <img src="/bjc-r/img/2-complexity/go-to-point(list(-50)(20)).png" alt="go to point (list {-50, 20})" title="go to point (list {-50, 20})" /> is an instruction. <!--<img src="/bjc-r/img/2-complexity/generic-instruction.png" alt="generic-command-block with input 100">--></li>
+                                                <li>An <strong>expression</strong> is a reporter block along with its inputs or input expressions. For example: <img class="inline" src="/bjc-r/img/2-complexity/U2ImageVideoAddendum_img/ycoordinateofpoint.png" height="40" alt="y coordinate of (point)" title="y coordinate of (point)">  is an expression. <!--<img src="/bjc-r/img/2-complexity/generic-expression.png" alt="generic-reporter block with input &quot;house&quot;">--> </li>
+                                                <li>A <strong>Boolean expression</strong> is a predicate block  with its inputs or input expressions. For example: <img src="/bjc-r/img/2-complexity/a-gt-7.png" alt="(a) &gt; (7)" title="(a) &gt; (7)" /> is a Boolean expression. <!--<img src="/bjc-r/img/2-complexity/generic-Boolean-expression.png" alt="generic-predicate-block with inputs">--></li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+				</li>
+			</ul>
+        </div>
+        
+        
+        <h3>Resources</h3>
+        <div>
+            <ul>
+                <li><a href="https://docs.google.com/document/d/1588yQy0hdGbVmJ_bYf6zUkzE51lYpeDKXjveez__7kA/edit?usp=sharing" title="Unit 1 Lab 2 Guided Notes" target="_blank">Lab 2 Guided Notes</a></li>
+                <li><a href="https://docs.google.com/document/d/1F7vKHlBEOzADu61G2viG1238Xzx59cVYhqTGdkqKmLQ/edit?usp=sharing" title="Unit 1 Formative Assessment Questions" target="_blank">Unit 1 Formative Assessment Questions</a></li>
+                <li><a href="https://docs.google.com/presentation/d/1KUPz0Aw1kDc63-SYVBJZLjXcIYajxWuz13AsZhcCJ60/edit?usp=sharing" title="Unit 1 Student Programming Journal" target="_blank">Unit 1 Student Programming Journal</a></li>
+            </ul>
+        </div>
+        
+        
+        <h3>Solutions</h3>
+        <div w3-include-html="/bjc-r/utilities/includes/1-solutions.txt"></div><script>w3.includeHTML();</script>
+			
+			
+		<h3>Correlation with 2020 AP CS Principles Framework<a name="AP" class="anchor">&nbsp;</a></h3>
+        <div class="apStandards">
+            <h4>Computational Thinking Practices: Skills</h4>
+            <ul>
+                <li><strong>1.C:</strong> Explain how collaboration affects the development of solutions.</li>
+                <li><strong>2.B:</strong> Implement an algorithm in a program.</li>
+                <li><strong>4.A:</strong> Explain how a code segment or program functions.</li>
+                <li><strong>4.B:</strong> Determine the result of code segments.</li>
+                <li><strong>6.A:</strong> Collaborate in the development of solutions.</li>
+            </ul>
+            <h4>Learning Objectives:</h4>
+            <ul>
+                <li><strong>CRD-1.C:</strong> Demonstrate effective interpersonal skills during collaboration. (1.C)</li>
+                <li><strong>CRD-2.B:</strong> Explain how a program or code segment functions. (4.A)</li>
+                <li><strong>AAP-2.D:</strong> Evaluate expressions that manipulate strings. (4.B)</li>
+                <li><strong>AAP-3.E:</strong> For generating random values:
+                    <ol>
+                        <li>Write expressions to generate possible values. (2.B)</li>
+                        <li>Evaluate expressions to determine the possible results. (4.B)</li>
+                    </ol>
+                </li>
+            </ul>
+            <h4>Essential Knowledge:</h4>
+            <ul>
+                <li><strong>CRD-1.B.2:</strong> Common models such as pair programming exist to facilitate collaboration.</li>
+                <li><strong>CRD-1.C.1:</strong> Effective collaborative teams practice interpersonal skills, including but not limited to: 
+                    <ul>
+                        <li>communication</li>
+                        <li>consensus building</li>
+                        <li>conflict resolution</li>
+                        <li>negotiation</li>
+                    </ul>
+                </li>
+                <li><strong>DAT-1.A.5:</strong> <em>Abstraction</em> is the process of reducing complexity by focusing on the main idea. By hiding details irrelevant to the question at hand and bringing together related and useful details, abstraction reduces complexity and allows one to focus on the idea. </li>
+                <li><strong>AAP-1.C.1:</strong> A <em>list</em> is an ordered sequence of elements. For example, <pre class="inline">[value1, value2, value3, …]</pre> describes a list where <pre class="inline">value1</pre> is the first element, <pre class="inline">value2</pre> is the second element, <pre class="inline">value3</pre> is the third element, and so on.</li>
+                <li><strong>AAP-2.B.3:</strong> An <em>expression</em> can consist of a value, a variable, an operator, or a procedure call that returns a value.</li>
+                <li><strong>AAP-2.D.1:</strong> String concatenation joins together two or more strings end-to-end to make a new string.</li>
+                <li><strong>AAP-2.D.2:</strong> A <em>substring</em> is part of an existing string.</li>
+                <li><strong>AAP-3.A.1:</strong> A <em>procedure</em> is a named group of programming instructions that may have parameters and return values.</li>
+                <li><strong>AAP-3.A.2:</strong> Procedures are referred to by different names, such as <em>method</em> or <em>function</em>, depending on the programming language.</li>
+                <li><strong>AAP-3.A.6:</strong> The exam reference sheet provides the procedure <pre class="inline">DISPLAY(expression)</pre> to display the value of <pre class="inline">expression</pre>, followed by a space.</li>
+                <li><strong>AAP-3.A.7:</strong> The exam reference sheet provides the <pre class="inline">RETURN(expression)</pre> statement, which is used to return the flow of control to the point where the procedure was called and to return the value of <pre class="inline">expression</pre>.</li>
+                <li><strong>AAP-3.A.9:</strong> The exam reference sheet provides procedure <pre class="inline">INPUT()</pre>, which accepts a value from the user and returns the input value.</li>
+                <li><strong>AAP-3.B.6:</strong> Using procedural abstraction helps improve code readability.</li>
+                <li><strong>AAP-3.B.7:</strong> Using procedural abstraction in a program allows programmers to change the internals of the procedure (to make it faster, more efficient, use less storage, etc.) without needing to notify users of the change as long as what the procedure does is preserved.</li>
+                <li><strong>AAP-3.C.2:</strong> The exam reference sheet provides
+<pre>PROCEDURE procName(parameter1, parameter2, …)
+{
+    &lt;block of statements&gt;
+    RETURN(expression)
+}</pre>
+which is used to define a procedure that takes zero or more arguments. The procedure contains <pre class="inline">block of statements</pre> and returns the value of <pre class="inline">expression</pre>. The <pre class="inline">RETURN</pre> statement may appear at any point inside the procedure and causes an immediate return from the procedure back to the calling statement.</li>
+                <li><strong>AAP-3.E.1:</strong> The exam reference sheet provides <pre class="inline">RANDOM(a, b)</pre> which generates and returns a random integer from <pre class="inline">a</pre> to <pre class="inline">b</pre>, inclusive. Each result is equally likely to occur. For example, <pre class="inline">RANDOM(1, 3)</pre> could return 1, 2, or 3.</li>
+                <li><strong>AAP-3.E.2:</strong> Using random number generation in a program means each execution may produce a different result.</li>
+            </ul>
+        </div>
+
+
+	</body>
+</html>

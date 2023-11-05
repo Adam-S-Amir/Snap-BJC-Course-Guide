@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="/bjc-r/llab/loader.js"></script>
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+		<title>Unit 2 Lab 4 Teacher Guide</title>
+	</head>
+
+	<body>
+		<h2>Lab 4: Making Computers Do Math</h2>
+		<p>
+            This lab doesn't have an overarching project; it's a collection of different techniques involving functions. The most important ideas, one per page, in order:
+            <ol>
+                <li>The <code>mod</code> (remainder) function</li>
+                <li>Snap<em>!</em>'s &quot;export blocks&quot; feature to make libraries</li>
+                <li>The higher order function <code>combine</code></li>
+            </ol>
+        </p>
+		<p>By the way, the use of language in which &quot;do math&quot; includes arithmetic functions but not Boolean functions comes from the AP CSP Framework. We do know that logic is part of math!</p>
+		
+        
+        <h3>Pacing</h3>
+		<div>
+			The 3 lab pages could be split across 2&ndash;3 days (<strong>60&ndash;120 minutes</strong>). Expected times to complete follow:
+			<ul>
+				<li>20&ndash;40 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/2-complexity/4-making-computers-do-math/1-mod-operator.html?topic=nyc_bjc%2F2-conditionals-abstraction.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 1: The Mod Operator">The <code>Mod</code> Operator</a></li>
+				<li>20&ndash;40 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/2-complexity/4-making-computers-do-math/2-math-predicates.html?topic=nyc_bjc%2F2-conditionals-abstraction.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 2: Making a Mathematical Library">Making a Mathematical Library</a></li>
+				<li>20&ndash;40 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/2-complexity/4-making-computers-do-math/3-other-math-reporters.html?topic=nyc_bjc%2F2-conditionals-abstraction.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 3: More Mathematical Reporters">More Mathematical Reporters</a></li>
+			</ul>
+		</div>
+
+
+		<h3>Lab Pages</h3>
+		<div>
+			<ul>
+				<li>
+					<strong>Page 1: The <code>Mod</code> Operator.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Understand the <code>mod</code> function.</li>
+                                <li>Use <code>mod</code> to build a divisibility checker predicate and a predicate to test whether a number is even.</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+								<li>
+                                	<strong>Mathematics Note: <code>Mod</code>.</strong><a name="mod" class="anchor">&nbsp;</a>For positive whole number inputs, the <code>mod</code> block returns the remainder when the first input is divided by the second.
+                                    <div class="endnote">
+                                        If either input is negative, what's meant by &quot;remainder&quot; gets more complicated, and there are actually two different functions, &quot;mod&quot; and &quot;remainder,&quot; with different answers.  Negative numbers will not be used with <code>mod</code> in this course.
+                                    </div>
+                                </li>
+                                <li>Resist the urge to pre-teach <code>mod</code>, and instead allow student to explore and experience the function before formalizing. After most students have considered the self-check questions toward the end, post similar questions, such as "What is the value of 13 MOD 2 + 1?" (2) or "What is the value of 13 MOD (2 + 1)?" (1), and have students share and discuss their thinking with the class.</li>
+                                <li><strong>Mathematics Note:</strong> The <em>integers</em> (referenced in the If There Is Time activity) are the counting numbers together with their negatives and zero: ..., -3, -2, -1, 0, 1, 2, 3, ... The number 17 is an integer, and so is −17. But the number 17.3 is <em>not</em> an integer. Neither is &pi; (pi). An integer is a number for which <code>round</code> returns the number itself. Students will use this fact to develop their <code>integer?</code> predicate.</li>
+                                <div class="todo">Any reason to keep any of this?
+                                    <li>Question 4 has handholding baby steps hidden behind a link.  Students should understand that if they always use the hints throughout the curriculum, they'll end the year not having learned many programming skills.  On the other hand, people often get stuck on small points that they really do already understand, but just aren't seeing that day.  Maybe yesterday or tomorrow they'd find the same question easy.  So it's okay for them to click the hint links when they've really tried, and they and their partner are both really stuck on the problem.</li>
+								    <li>A "number of" block is almost always done by first making a block to determine the actual items and then using <code>length</code> to count them.  This is what's behind the hint link.  But students should understand it as a general strategy.</li>
+                                </div>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<strong>Page 2: Making a Mathematical Library.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+                                <li>Create a library of mathematical procedures.</li>
+                                <li>Learn about importing and exporting functions.</li>
+								<li>Practice using <code>keep</code>.</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+								<li>See the "Block Libraries" section on the bottom of page 29 in the <a href="https://snap.berkeley.edu/snapsource/help/SnapManual.pdf#page=29" target="_blank" title="Snap! Reference Manual">Snap<em>!</em> Reference Manual</a> for more information about exporting and importing.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<strong>Page 3: More Mathematical Reporters.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Use the <code>combine</code> block to develop several list functions.</li>
+								<li>Add to students' collection of useful mathematical functions.</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+								<div class="comment">Do we say this in the student pages?</div>
+								<li><code>Map</code> and <code>keep</code> are versatile functions; almost anything might be used as its function input.  <code>Combine</code>, though, really makes sense only with <code>+</code>, <code>&times;</code>, <code>and</code>, <code>or</code>, <code>join</code>, <code>join words</code>, and the blocks <code>min</code> and <code>max</code> that students write in this lab.</li>
+								<li>Regarding <code>average of list</code>, note that it's incorrect to average two numbers, then average that result with the third number, and so on.  That gives too much weight to the last numbers averaged in.  Students must first add all the numbers, then, just once, divide by the number of numbers.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+
+		<!--<h3>Assignments</h3>
+		<div>
+			<ul>
+				<li>...</li>
+			</ul>
+		</div>-->
+
+		<h3>Resources</h3>
+        <div>
+            <ul>
+                <li><a href="https://docs.google.com/document/d/1r5toAwCtn40PUegQ8HhTtXZHwDMz9RhAL99h_hpKIbU/edit" title="Unit 2 Lab 4 Guided Notes" target="_blank">Lab 4 Guided Notes</a></li>
+                <li><a href="https://docs.google.com/document/d/1drZzaEVOaQHfYTZOE85M9lfa3cFsXA4mRVKIHIycjGc/edit" title="Unit 2 Formative Assessment Questions" target="_blank">Unit 2 Formative Assessment Questions</a></li>
+                <li><a href="https://docs.google.com/presentation/d/1fjXGhfSlt8cxQx6ohbrqZClpRm0zb_pjVu0Lp0gUoAE/edit#slide=id.g8e73bc5b33_0_236" title="Unit 2 Student Programming Journal" target="_blank">Unit 2 Student Programming Journal</a></li>
+            </ul>
+        </div>
+			
+		<h3>Solutions</h3>
+        <div w3-include-html="/bjc-r/utilities/includes/2-solutions.txt"></div><script>w3.includeHTML();</script>
+			
+			
+		<h3>Correlation with 2020 AP CS Principles Framework<a name="AP" class="anchor">&nbsp;</a></h3>
+        <div class="apStandards">
+            <h4>Computational Thinking Practices: Skills</h4>
+            <ul>
+                <!--This one isn't here because the CB has flagged the LO for "Create algorithms" (AAP-2.M part a) as though it were aligned only without students using a programming language. --MF, 11/18/19 <li><strong>2.A:</strong> Represent algorithmic processes without using a programming language.</li>-->
+                <li><strong>2.B:</strong> Implement an algorithm in a program.</li>
+            </ul>
+            <h4>Learning Objectives:</h4>
+            <ul>
+                <li>
+                    <strong>AAP-2.M:</strong> For algorithms: 
+                    <ul>
+                        <li>Create algorithms. (2.A)</li>
+                        <li>Combine and modify existing algorithms. (2.B)</li>
+                    </ul>
+                </li>
+                <li><strong>AAP-3.D:</strong> Select appropriate libraries or existing code segments to use in creating new programs. (2.B)</li>
+            </ul>
+            <h4>Essential Knowledge:</h4>
+            <ul>
+                <li><strong>AAP-2.B.5:</strong> The evaluation of expressions follows a set order of operations defined by the programming language.</li>
+                <li><strong>AAP-2.C.1:</strong> Arithmetic operators are part of most programming languages and include addition, subtraction, multiplication, division, and modulus operators.</li>
+                <li><strong>AAP-2.C.2:</strong> The exam reference sheet provides <pre class="inline">a MOD b</pre>, which evaluates to the remainder when <pre class="inline">a</pre> is divided by <pre class="inline">b</pre>. Assume that <pre class="inline">a</pre> is an integer greater than or equal to 0 and <pre class="inline">b</pre> is an integer greater than 0. For example, <pre class="inline">17 MOD 5</pre> evaluates to <pre class="inline">2</pre>.</li>
+                <li>
+                    <strong>AAP-2.C.3:</strong> The exam reference sheet provides the arithmetic operators <pre class="inline">+, -, *, /</pre>, and <pre class="inline">MOD</pre>.
+                    <ul>
+                        <li><pre class="inline">a + b</pre></li>
+                        <li><pre class="inline">a – b</pre></li>
+                        <li><pre class="inline">a * b</pre></li>
+                        <li><pre class="inline">a / b</pre></li>
+                        <li><pre class="inline">a MOD b</pre></li>
+                    </ul>
+                    These are used to perform arithmetic on <pre class="inline">a</pre> and <pre class="inline">b</pre>. For example, <pre class="inline">17 / 5</pre> evaluates to <pre class="inline">3.4</pre>.
+                </li>
+                <li><strong>AAP-2.C.4:</strong> The order of operations used in mathematics applies when evaluating expressions. The <pre class="inline">MOD</pre> operator has the same precedence as the <pre class="inline">*</pre> and <pre class="inline">/</pre> operators.</li>
+                <li>
+                    <strong>AAP-2.H.2:</strong> The exam reference sheet provides
+<pre>IF(condition)
+{
+    &lt;block of statements&gt;
+}</pre>
+                    in which the code in <pre class="inline">block of statements</pre> is executed if the Boolean expression <pre class="inline">condition</pre> evaluates to <pre class="inline">true</pre>; no action is taken if <pre class="inline">condition</pre> evaluates to <pre class="inline">false</pre>.
+                </li>
+                <li>
+                    <strong>AAP-2.H.3:</strong> The exam reference sheet provides
+<pre>IF(condition)
+{
+    &lt;first block of statements&gt;
+}
+ELSE
+{
+    &lt;second block of statements&gt;
+}</pre>
+                    in which the code in <pre class="inline">first block of statements</pre> is executed if the Boolean expression <pre class="inline">condition</pre> evaluates to <pre class="inline">true</pre>; otherwise, the code in <pre class="inline">second block of statements</pre> is executed.
+                </li>
+                <li><strong>AAP-2.L.2:</strong> Algorithms that appear similar can yield different side effects or results.</li>
+                <li><strong>AAP-2.M.1:</strong> Algorithms can be created from an idea, by combining existing algorithms, or by modifying existing algorithms.</li>
+                <li>
+                    <strong>AAP-2.M.2:</strong> Knowledge of existing algorithms can help in constructing new ones. Some existing algorithms include:
+                    <ul>
+                        <li>determining the maximum or minimum value of 2 or more numbers</li>
+                        <li>computing the sum or average of 2 or more numbers</li>
+                        <li>identifying if an integer is or is not evenly divisible by another integer</li>
+                    </ul>
+                </li>
+                <li><strong>AAP-2.M.3:</strong> Using existing correct algorithms as building blocks for constructing another algorithm has benefits such as reducing development time, reducing testing, and simplifying the identification of errors.</li>
+                <li>
+                    <strong>AAP-2.O.4:</strong> Knowledge of existing algorithms that use iteration can help in constructing new algorithms. Some examples of existing algorithms that are often used with lists include:
+                    <ul>
+                        <li>determining a minimum or maximum value in a list</li>
+                        <li>computing a sum or average of a list of numbers</li>
+                    </ul>
+                </li>
+                <li><strong>AAP-3.A.7:</strong> The exam reference sheet provides the <pre class="inline">RETURN(expression)</pre> statement, which is used to return the flow of control to the point where the procedure was called and to return the value of <pre class="inline">expression</pre>.</li>
+                <li>
+                    <strong>AAP-3.C.2:</strong> The exam reference sheet provides
+<pre>PROCEDURE procName(parameter1, parameter2, …)
+{
+    &lt;block of statements&gt;
+    RETURN(expression)
+}</pre>
+                    which is used to define a procedure that takes zero or more arguments. The procedure contains <pre class="inline">block of statements</pre> and returns the value of <pre class="inline">expression</pre>. The <pre class="inline">RETURN</pre> statement may appear at any point inside the procedure and causes an immediate return from the procedure back to the calling statement.
+                </li>
+                <li><strong>AAP-3.D.1:</strong> A software library contains procedures that may be used in creating new programs.</li>
+                <li><strong>AAP-3.D.2:</strong> Existing code segments can come from internal or external sources, such as libraries previously written code.</li>
+                <li><strong>AAP-3.D.3:</strong> The use of libraries simplifies the task of creating complex programs.</li>
+                <li><strong>AAP-3.D.4:</strong> Application program interfaces (APIs) are specifications for how the procedures in a library behave and can be used.</li>
+                <li><strong>AAP-3.D.5:</strong> Documentation for an API/library is necessary in understanding the behavior(s) provided by the API/library and how to use them.</li>
+            </ul>
+        </div>
+
+
+	</body>
+</html>

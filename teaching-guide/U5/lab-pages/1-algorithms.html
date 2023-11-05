@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="/bjc-r/llab/loader.js"></script>
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+		<title>Unit 5 Lab 1 Teacher Guide</title>
+	</head>
+    
+    <body>
+        <h2>Lab 1: Search Algorithms and Efficiency</h2>
+        <p>In a reversal of their <a href="/bjc-r/cur/programming/2-complexity/1-variables-games/3-debugging-extending.html?topic=nyc_bjc%2F2-conditionals-abstraction.topic&course=bjc4nyc.html&novideo&noassignment" title="Debugging and Extending Your Number Guessing Game">Unit 2 number guessing game</a>, students design an algorithm that identifies the player's secret number by: guessing, asking the player if the guesses are too high or too low, and guessing again until guessing right. Students use this as a basis for developing and analyzing list searching algorithms for ordered and unordered lists.</p>
+		<p> An efficient list searching algorithm depends on the fact that numbers have order. Searching an <em>ordered</em> list to find the location of a given object is most efficiently done with essentially the same algorithm. Searching for the location of an object in an <em>unordered</em> list cannot be done the same way. The time that it takes these two algorithms to find their objects hardly matters when the lists are small, but matters a lot when the lists get large. This is students' first experience analyzing computational complexity.</p> 
+        
+        <div class="todo">
+            <p>
+                From Dan: 
+                <ul>
+                    <li>Given a ton of card decks, have the class figure out the fastest INDIVIDUAL time to start from a shuffled deck to a sorted deck (students can choose what "in order" means for that, but it has to be a unique order, so "reds in front of blacks" isn't enough — people always choose to sort by either rank or suit).  Talk about the different algorithms that evolved, and what were fastest.</li>
+                    <li>Tell the class they can work as a TEAM to sort a shuffled desk the fastest.  The teams can be any size. Let them continue to adjust the algorithms and sizes of teams and personnel on the teams to achieve the fastest scores.  Talk about the different algorithms that evolved, and what were fastest.</li>
+                </ul>
+				This is a great introduction to concurrent algorithms, and allows the kids to come up with algorithms on their own, and builds team spirit. It's really fun and useful to plot the fastest times vs the number of players, and talk about Amdahl's law. (Added in by MF) Brian suggested the placement in the middle of Lab 3.
+            </p>
+		</div>
+				
+        <div class="todo">From L3:<p>Students compare and contrast algorithms based on their code and running times. Students write a program that times a computation in milliseconds and then time several processes and compare the results. Students also learn the differences between algorithms that run in reasonable time and algorithms that do not. Algorithms that run in reasonable time are further divided into <em>constant</em> time processes (ones in which computing time is not affected by the magnitude of the input), <em>linear</em> time (computing time proportional to the magnitude of the input), and <em>polynomial</em> time (slower than linear, computing time proportional to some polynomial function of the input).</p>  
+        </div>
+        
+
+        
+		<h3>Pacing:</h3>
+        <div>
+			The 7 required lab pages could be split across 4&ndash;7 days (<strong>150&ndash;300 minutes</strong>). Expected times to complete follow:
+			<ul>
+				<li>20&ndash;40 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/5-algorithms/1-searching-lists/1-sorted-lists.html?topic=nyc_bjc%2F5-algorithms.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 1: Guess My Number">Guess My Number</a></li>
+				<li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/5-algorithms/1-searching-lists/2-how-many-five-letter-words.html?topic=nyc_bjc%2F5-algorithms.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 2: How Many Five-Letter Words Are There?">How Many Five-Letter Words Are There?</a></li>
+				<li>25&ndash;50 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/5-algorithms/1-searching-lists/3-spell-checker.html?topic=nyc_bjc%2F5-algorithms.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 3: Is 'Seperate' Spelled Correctly?">Is "Seperate" Spelled Correctly?</a></li>
+				<li>25&ndash;50 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/5-algorithms/1-searching-lists/4-efficiency.html?topic=nyc_bjc%2F5-algorithms.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 4: Exactly How Much Faster Is Binary Search?">Exactly How Much Faster Is Binary Search?</a></li>
+				<li>25&ndash;50 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/5-algorithms/1-searching-lists/5-categorizing-algorithms.html?topic=nyc_bjc%2F5-algorithms.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 5: Categorizing Algorithms">Categorizing Algorithms</a></li>
+				<li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/5-algorithms/1-searching-lists/6-heuristics.html?topic=nyc_bjc%2F5-algorithms.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 6: Heuristic Solutions">Heuristic Solutions</a></li>
+				<li>If used, 20&ndash;40 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/5-algorithms/1-searching-lists/7-comparing-search-algorithms.html?topic=nyc_bjc%2F5-algorithms.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 7: Removing Duplicates">Removing Duplicates</a>*</li>
+				<li>25&ndash;50 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/5-algorithms/1-searching-lists/8-sequential.html?topic=nyc_bjc%2F5-algorithms.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 8: Parallelism">Parallelism</a></li>
+			</ul>
+    		<div w3-include-html="/bjc-r/utilities/includes/asterisk.txt"></div><script>w3.includeHTML();</script>        
+		</div>
+
+		
+        <h3>Lab Pages</h3>
+		<div>
+			<ul>
+                <div class="todo">
+                    <p>Brian, I suggest using some of this to fill in the blanks in the TG below... --MF, 11/17/19</p>
+                    <li>
+                    <strong>Page 1: Searching a Sorted List.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Invent a strategy for reliably guessing a number.</li>
+                        		<li>Implement an algorithm for reliably guessing a number.</li>
+							</ul>
+						</li>
+						<li>
+                        	<strong>Prepare: Day 2&mdash;Off-Computer Game.</strong>
+                            <ul>
+                                <li>Decide how to split your class into small groups with two teams each. </li>
+                                <li>Prepare materials for each group: 15 paper cups numbered 1 through 15 and 25 small cards numbered 1 through 25, which fit inside the cups.</li>                            
+							</ul>
+                        </li>
+                        <li>
+							<strong>Tips:</strong>
+							<ul>
+								<li>Begin with student lab page. As you circulate, ask about students' strategies for number guessing and their programming ideas. If there is time, you may want to ask various students to share strategies.</li>
+                        		<li>If students don't yet come up with a clear understanding of the algorithm, the following cups game gives them yet another chance.</li>
+                                <li>
+                                    <em>Start the second day with this off-computer game,</em> then use remainder of period to complete first lab page:
+                                    <ul>
+                                        <li>
+                                            <strong>Setup:</strong>
+                                            <ul>
+                                                <li>Assign teams and hand out materials described in Prepare section above.</li>
+                                                <li>Explain the game, and pose or post the "Questions to consider during play" (below).</li>
+                                                <li>Team 1 secretly arranges the cups in numerical order with exactly one card in each cup. Cards will be left over, but the ones in the cups must be <em>in numerical order</em>.</li>
+                                                <li>Team 2 selects a number at random, using <img class="inline" src="/bjc-r/img/5-algorithms/pick-random(1)to(25).png" alt="pick random (1) to (25)" title="pick random (1) to (25)" />, and tells Team 1. </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <strong>Goal: </strong> Team 2 tries to figure out, using the fewest questions, which cup that number is in or whether that number is not in any cup.
+                                            <ul>
+                                                <li>Team 2 players may ask <em>only</em> "Is it in cup number ____?"</li>
+                                                <li>Team 1 may answer <em>only</em> "yes" or "the number in that cup is higher/lower than the number you are looking for."</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <strong>Questions to consider during play:</strong>
+                                            <ul>
+                                                <li>What strategies can help you find a particular number with the fewest location checks?</li>
+                                                <li>On average, how many guesses would it take  to find a number?</li>
+                                                <li>How many guesses would it take to determine that a number didn't exist in the list at all?</li>
+                                                <li>How much more work would it be to find a number if the number of cups were doubled?</li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <strong>Discussion after game:</strong> 
+                                            <ul>
+                                                <li>Have students share some of their thinking about the four questions above.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 2: Analyzing and Improving Searches.</strong>
+                    <div class="todo">Brian, if you keep these images, please don't call it "awful list." How about "sorted list" or something else that's appropriately descriptive? --MF, 11/17/19</div>
+					<ul>
+						<img class="imageRight" src="/bjc-r/img/5-algorithms/awful-list-indexed.png" height="350" alt="awful list {1, 7, 8, 9, 11, 12, 21, 22, 23, 24, 73, 73, 96, 99}" title="awful list {1, 7, 8, 9, 11, 12, 21, 22, 23, 24, 73, 73, 96, 99}" />
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Implement an algorithm for searching <em>unsorted</em> lists.</li>
+                                <li>Consider how the size of the search territory influences the amount of time that the search takes.</li>
+                                <li>Modify the number guessing algorithm for searching <em>sorted</em> lists.</li>
+                                <li>Implement an algorithm for searching <em>sorted</em> lists.</li>
+							</ul>
+						</li>
+						<li><strong>Discussion:</strong> After students work through the lab page, you might ask: "Which takes fewer computer steps, finding a number in a <em>sorted</em> list or finding a number in an <em>unsorted</em> list?"</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+                                <li>Introduce programming activity by saying that the first part of the lab asks you to figure out a strategy for finding a number if the list is <em>not</em> sorted.</li>
+                                <li>
+                                    You might want to connect searching a sorted list with mean, median, midrange. In this list, 50 is the midrange, exactly midway between 1 and 99, but is a poor place to start the search because it doesn't split the list in half. The mean is approximately 34, which is no better. What we are looking for is the <em>median</em>, the number <em>in the middle of the sorted list</em>. Students may find it helpful to define blocks that find the <code>mean</code> and <code>median</code> of lists of numbers.<br />
+                                    <img class="indent" src="/bjc-r/img/5-algorithms/mean(awful-list)-withResult.png" height="55" alt="mean(awful list) reporting 34.2142857" title="mean(awful list) reporting 34.2142857">
+                                    <img class="indent" src="/bjc-r/img/5-algorithms/median(awful-list)-withResult.png" alt="median(awful list) reporting 21.5" title="median(awful list) reporting 21.5">
+                                </li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 3: List Processing Algorithms.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Use a recursive algorithm to develop code for checking if the elements of a list are distinct. </li>
+								<li>Use this code to develop code for reporting the duplicate items in a list.</li>
+							</ul>
+						</li>
+						<!--<li>
+                            <strong>Discussion:</strong> How is pseudocode useful?
+                            <ul>
+                                <li>What parallels are there between statements in pseudocode and blocks of Snap<em>!</em> code?</li>
+                                <li>What ways can you outline your work before creating code?</li>
+                            </ul>
+                        </li>-->
+                        <li>
+							<strong>Tips:</strong>
+							<ul>
+								
+                                <li>Students may have different impressions of the pseudocode steps as written. Encourage them to rewrite it in their own words. The concept here is to give students a clearer picture of ways they can organize their work somewhere in between a written language and their code.</li>
+                                <li>In particular here, if a student misunderstands some of the pseudocode, get another student to help them with an alternate description. Or try to get the student to write something more useful to them. Ideally, don't show them the corresponding code, as this shortcuts the activity.</li>
+                                <li>There are multiple ways to make the list of duplicates. Expect most students to build an algorithm similar to the one that determines if the unique list exists. If time permits and you see different algorithms used, highlight their differences. You can also use these algorithms in later labs as your examples for timing tests.</li>
+
+							</ul>
+						</li>
+					</ul>
+                </li>
+                </div>
+				<li>
+					<strong>Page 1: Guess My Number.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Students invent the binary search algorithm by observing their own guesses and trying to improve their play.</li>
+								<li>They then implement the algorithm for the computer to use while guessing.</li>
+							</ul>
+						</li>
+						<li>
+                        	<strong>Tips:</strong>
+							<ul>
+                                <li>Students have built the version of the game in which the human player does the guessing in Unit 2. Some will already have discovered the binary search algorithm. Indeed, some may have played the game in elementary school math class.</li>
+                                <li>When students implement the program that lets the computer guess the human player's number, there is no scaffolding at all for the programming. We're in Unit 5, almost ready for the AP exam, and they need to have some skill at coding by now. Reassure them (and yourself) that they can do this, and refrain from giving them code. Instead, tell them to read the algorithm description they've just written.</li>
+                                <li>By the way, they wrote the algorithm in English in the context of teaching it to another student. This is a much more natural and honest context for writing algorithms in text than talk of &quot;pseudocode&quot;; if you're writing an algorithm for a computer to use, the only reason not to write it directly in code is that you're using a bad programming language. But other human beings are &quot;programmed&quot; in English.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+					<strong>Page 2: How Many Five-Letter Words Are There?</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Students will use the <code>computation time of</code> block to measure the running time of a process.</li>
+								<li>Students will understand what it means for a process to take linear time: The time is proportional to the size of the input.</li>
+							</ul>
+						</li>
+						<li>
+                        	<strong>Tips:</strong>
+							<ul>
+                                <li>As the page reminds them, students have already written the (one-line) function, using <code>keep</code>, to count the number of five-letter words. If they've forgotten, let them review the linked page.</li>
+                                <li>It's important that they do problem 5 (estimate the time for a ten-times-as-long dictionary) before problem 6 (do the experiment).</li>
+                                <li>Note that the inner green box invites students to look inside the <code>computation time of</code> block. It's a simple piece of code, won't take long to read, and may be useful in demystifying the measurement of time.</li>
+                                <li>The block measures &quot;wall clock time&quot;: the actual elapsed time, not the amount of time the computer actually spends running this program. Modern operating systems start roughly 100 programs when they are booted; all those programs compete with Snap<em>!</em> for computer time. That's why running the same experiment twice will generally give different answers.</li>
+                                <li>Don't obsess over the difference between a problem and an instance of the problem, but there <em>is</em> a reason for making the distinction: An instance of the problem, working with specific inputs, takes constant time!  (Maybe a small constant, maybe a large constant, but either way it's constant.) It's only when you compare several instances of the problem that you can observe how running time varies as a function of problem size.</li>
+                                <li><code>Keep</code> is a Snap<em>!</em> primitive, but that doesn't mean it takes constant time. <em>Most</em> primitives do take constant time (think about arithmetic operators, sprite motion, and so on), so some students may assume that <em>all</em> primitives are constant time. But even not counting higher order functions, the <code>contains</code> predicate for lists takes linear time.</li>
+                                <li>Don't neglect problem 7. It's not always obvious which of several sizes in a problem is the relevant one for timing computations.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+					<strong>Page 3: Is "Seperate" Spelled Correctly?</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>The goal of this page is for students to understand and time binary search.</li>
+							</ul>
+						</li>
+						<li>
+                        	<strong>Tips:</strong>
+							<ul>
+                                <li>The main difference between guess my number and binary search is that in the former, each number is its own position. (That is, in the numbers from 1 to 10, 3 is the third number.) So there's no need to consider the position and the value at that position separately. But in binary search of a dictionary, after computing the middle position in the list, you have to actually retrieve that item of the list with the <code>item</code> block.</li>
+                                <li>Don't bring this up unless a student asks, but the comparison predicates, when applied to <em>numbers, don't</em> compare alphabetically; 2 comes before 12 as a number, even though in alphabetical order, &quot;2&quot; would be compared with <em>the first digit of</em> &quot;12,&quot; i.e., with &quot;1.&quot;</li>
+                                <li>Don't bring this up, either, but if you do a binary search of a <em>linked</em> list (one that was constructed with the <code>in front of</code> function rather than by mutation) it'll take somewhat more than linear time, because each call to <code>item</code> takes linear time instead of constant time. It won't happen with the dictionaries in the starter project.</li>
+                                <li>The &quot;If There Is Time&quot; project, a spell checker, is fun and useful.</li>
+                                <div class="todo">From student page (need to integrate): The crucial difference is that you find the average position on in the list but them to see if you are high or low, you have to look at the actual item in the list, not just the position number.</div>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+					<strong>Page 4: Exactly How Much Faster Is Binary Search?</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Students will determine that binary search takes less than linear time, both by experimental measurement and by counting the number of constant-time steps required.</li>
+							</ul>
+						</li>
+						<li>
+                        	<strong>Tips:</strong>
+							<ul>
+                                <li>After students have they've made their tables, have a few students share their times and observe the variation. Then have a few students share their number of steps and observe that everyone (ideally) has the same count for the steps. This is because the number of steps is a fixed quantity, whereas the time the algorithm takes to run depends on the speed of the computer and what else it's doing at that moment.</li>
+                                <li>Students may notice that there are actually two comparisons in every iteration for <code>binary search</code>: an <code>=</code> and a <code>&lt;</code>. We are considering that to be just one step, but if they want to count each as its own step, that's fine; they will just get twice as many steps for each list in their table.</li>
+                                <li>If your students are old enough to have studied logarithms, you can ask them to determine the exact number of comparisons needed as a function of the list size, namely <em>f</em>(<em>n</em>)=⌈log<sub>2</sub><em>n</em>⌉. (Of course this is a worst case time; you might be lucky enough to be searching for the word exactly halfway through the list.) But if they haven't studied logs, it's not important; they should just see how dramatically lower the number of guesses is than the size of the list.</li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+					<strong>Page 5: Categorizing Algorithms.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Understand examples of constant time, sublinear (e.g., log) time, linear time, quadratic time, and exponential time.</li>
+							</ul>
+						</li>
+						<li>
+                        	<strong>Tips:</strong>
+							<ul>
+                                <li>Because 25,000 is a big number, students may find it counterintuitive that it's in the fastest category (constant time). But this is a case in which the relevant number is, indeed, 25,000&mdash;but it's <em>always</em> 25,000. 25,000 numbers starting at 1,000,000 takes just as long as 25,000 numbers starting at 1. So the input to the function is irrelevant.</li>
+                                <li>We provide a sort function that takes quadratic time, not the most efficient possible, because we want students to understand quadratic time. Optimal sort algorithms take <em>n</em> log <em>n</em> time.</li>
+                                <li>The exponential-time algorithm, the one that finds values in Pascal's triangle by adding the two values above the one you want, is in an If There Is Time. But try to fit this in; the experience of measuring an exponential-time function will really give students an intuitive feel for how unreasonable an exponential-time algorithm is. Just reading about it isn't the same.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+					<strong>Page 6: Heuristic Solutions.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Students will learn that some exponential-time problems have faster <em>approximate</em> or <em>good enough</em> solutions.</li>
+							</ul>
+						</li>
+						<li>
+                        	<strong>Tips:</strong>
+							<ul>
+                                <li>We are not asking students to write a real example of a heuristic solution. So this page is entirely offline discussions or even lecture if you must.</li>
+                                <li>The &quot;can all decision problems be solved&quot; part of the page introduces the topic of Lab 4: undecidable problems. It's here because the College Board only expects students to accept on faith that there are such problems, so some teachers decide to skip Lab 4, in which we prove it.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+					<strong>Page 7: Removing Duplicates.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li><code>Distinct items</code> is another example of a quadratic time algorithm.</li>
+								<li>Students are guided to a recursive solution, introducing them to recursions on lists.</li>
+							</ul>
+						</li>
+						<li>
+                        	<strong>Tips:</strong>
+							<ul>
+                                <li>Expect some students to have trouble understanding the base case of the predicate version they write first. Are the items of an empty list distinct? There aren't any items, so students will be tempted to report False. But the right way to think about it is that there aren't any non-distinct items, so all the (nonexistent) items are indeed distinct.</li>
+                                <li>This algorithm takes quadratic time. If you have some students who are way ahead of the class, tell them that a good rule of thumb is to see if <em>sorting</em> the data (with an <em>n</em> log <em>n</em> algorithm like the one in the &quot;list utilities&quot; library, not the <em>n</em><sup>2</sup> one in this lab's starter project) will allow a solution in less than quadratic time. And in this case it will, because each item has to be compared only to the one just after it, rather than to all the others.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+					<strong>Page 8: Parallelism.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Many problems can be solved more quickly with parallelism.</li>
+								<li>Even home computers these days have a small degree of parallel capability.</li>
+								<li>For several reasons, using <em>n</em> processors instead of one doesn't divide the runtime by <em>n.</em></li>
+								<li>Writing software to benefit from parallelism is hard to get right.</li>
+							</ul>
+						</li>
+						<li>
+                        	<strong>Tips:</strong>
+							<ul>
+                                <li>In the examples using <code>wait</code> blocks, it's important to notice the &quot;<code>and wait</code>&quot; in the <code>broadcast</code> block that starts the parallel scripts; that's what makes the <code>wait</code> in the same script happen after the parallel threads have finished.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>                
+			</ul>
+		</div>
+
+			
+		<div class="todo">
+		<h3>edX BJC Videos</h3>
+        <div class="sidenote">
+            <strong>No YouTube access at your school?</strong><br />
+            Try these <a href="/bjc-r/cur/teaching-guide/resources/video-list-scratch.html" title="edX BJC Videos (Alternate Links)">Alternate Links</a>.
+        </div>
+        <div>
+        	<ul>
+                <li><a href="https://www.youtube.com/watch?v=rVIq_bol1Es&list=PLno6_GYnQv_Shd5NHuuYRO0GIxIgft2DM&index=11" target="_blank" title="Abstraction: Base Conversion">Abstraction: Base Conversion</a></li>
+                <li><a href="https://www.youtube.com/watch?v=Z3zt_7cKreY&list=PLno6_GYnQv_TVRZPH6jYTIZLJ-ZTivhA4&index=2" target="_blank" title="Algorithms: Definitions">Algorithms: Definitions</a></li>
+                <li><a href="https://www.youtube.com/watch?v=OO6YX67SYpA&list=PLno6_GYnQv_TVRZPH6jYTIZLJ-ZTivhA4&index=3" target="_blank" title="Algorithms: Properties">Algorithms: Properties</a> </li>
+                <li><a href="https://www.youtube.com/watch?v=DT1XrcDtWKI&list=PLno6_GYnQv_TVRZPH6jYTIZLJ-ZTivhA4&index=4" target="_blank" title="Algorithms: Expressing">Algorithms: Expressing</a> </li>
+                <li><a href="https://www.youtube.com/watch?v=RYzNRZcAb4A&list=PLno6_GYnQv_TVRZPH6jYTIZLJ-ZTivhA4&index=5" target="_blank" title="Algorithms: Turing Completeness">Algorithms: Turing Completeness</a> </li>
+                <li><a href="https://www.youtube.com/watch?v=fcRPFlA2lxU&list=PLno6_GYnQv_TVRZPH6jYTIZLJ-ZTivhA4&index=6" target="_blank" title="Algorithms: Specifications">Algorithms: Specifications</a> </li>
+                <li><a href="https://www.youtube.com/watch?v=NEFuft8NJjM&list=PLno6_GYnQv_TVRZPH6jYTIZLJ-ZTivhA4&index=7" target="_blank" title="Algorithms: Analysis Part 1">Algorithms: Analysis Part 1</a> </li>
+                <li><a href="https://www.youtube.com/watch?v=vtobiUX0I4s&list=PLno6_GYnQv_TVRZPH6jYTIZLJ-ZTivhA4&index=8" target="_blank" title="Algorithms: Analysis Part 2">Algorithms: Analysis Part 2</a> </li>
+                <li><a href="https://www.youtube.com/watch?v=X6FKrjiqm08&list=PLno6_GYnQv_TVRZPH6jYTIZLJ-ZTivhA4&index=9" target="_blank" title="Algorithms: Correctness, Summary">Algorithms: Correctness, Summary</a> </li>
+                <li><a href="https://www.youtube.com/watch?v=vYufJrKWCXA&index=7&list=PLno6_GYnQv_SOQ7nFjItIdn0Xa9IV4VmH" target="_blank" title="Limits of Computing: Introduction to Complexity Theory">Limits of Computing: Introduction to Complexity Theory</a> </li>
+                <li><a href="https://www.youtube.com/watch?v=gvOCnDVLhuE&index=8&list=PLno6_GYnQv_SOQ7nFjItIdn0Xa9IV4VmH" target="_blank" title="Limits of Computing: Heuristics, NP, NP-Hard, NP-Complete Part 1">Limits of Computing: Heuristics, NP, NP-Hard, NP-Complete Part 1</a></li>
+                <li><a href="https://www.youtube.com/watch?v=cqvPyqh_pOw&index=9&list=PLno6_GYnQv_SOQ7nFjItIdn0Xa9IV4VmH" target="_blank" title="Limits of Computing: Heuristics, NP, NP-Hard, NP-Complete Part 2">Limits of Computing: Heuristics, NP, NP-Hard, NP-Complete Part 2</a></li>
+            </ul>
+        </div>
+        </div>
+
+		<h3>Solutions</h3>
+        <div w3-include-html="/bjc-r/utilities/includes/5-solutions.txt"></div><script>w3.includeHTML();</script>
+			
+			
+		<h3>Correlation with 2020 AP CS Principles Framework<a name="AP" class="anchor">&nbsp;</a></h3>
+        <div class="apStandards">
+            <h4>Computational Thinking Practices: Skills</h4>
+            <ul>
+                <li><strong>1.A:</strong> Investigate the situation, context or task.</li>
+                <li><strong>1.D:</strong> Evaluate solution options.</li>
+            </ul>
+            <h4>Learning Objectives:</h4>
+            <ul>
+                <li>
+                    <strong>AAP-2.P:</strong> For binary search algorithms:
+                    <ul>
+                        <li>Determine the number of iterations required to find a value in a data set. (1.D)</li>
+                        <li>Explain the requirements necessary to complete a binary search. (1.A)</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>AAP-4.A:</strong> For determining the efficiency of an algorithm:
+                    <ul>
+                        <li>Explain the difference between algorithms that run in reasonable time and those that do not. (1.D)</li>
+                        <li>Identify situations where a heuristic solution may be more appropriate. (1.D)</li>
+                    </ul>
+                </li>
+                <li><strong>AAP-4.B:</strong> Explain the existence of undecidable problems in computer science. (1.A)</li>
+                <li>
+                    <strong>CSN-2.A:</strong> For sequential, parallel, and distributed computing: 
+                    <ul>
+                        <li>Compare problem solutions. (1.D)</li>
+                        <li>Determine the efficiency of solutions. (1.D)</li>
+                    </ul>
+                </li>                        
+                <li><strong>CSN-2.B:</strong> Describe benefits and challenges of parallel and distributed computing. (1.D)</li>
+            </ul>
+            <h4>Essential Knowledge:</h4>
+            <ul>
+                <li><strong>AAP-2.O.1:</strong> Traversing a list can be a complete traversal, where all elements in the list are accessed, or a partial traversal, where only a portion of elements are accessed.</li>
+                <li><strong>AAP-2.O.5:</strong> Linear search or sequential search algorithms check each element of a list, in order, until the desired value is found or all elements in the list have been checked.</li>
+                <li><strong>AAP-2.P.1:</strong> The binary search algorithm starts at the middle of a sorted data set of numbers and eliminates half of the data; this process repeats until the desired value is found or all elements have been eliminated.</li>
+                <li><strong>AAP-2.P.2:</strong> Data must be in sorted order to use the binary search algorithm.</li>
+                <li><strong>AAP-2.P.3:</strong> Binary search is often more efficient than sequential/linear search when applied to sorted data.</li>
+                <li><strong>AAP-4.A.1:</strong> A <em>problem</em> is a general description of a task that can (or cannot) be solved algorithmically. An <em>instance</em> of a problem also includes specific input. For example, sorting is a problem; sorting the list (2,3,1,7) is an instance of the problem.</li>
+                <li><strong>AAP-4.A.2:</strong> A <em>decision problem</em> is a problem with a yes/no answer  (e.g., is there a path from A to B?). An <em>optimization problem</em> is a problem with the goal of finding the "best" solution among many (e.g., what is the shortest path from A to B?).</li>
+                <li><strong>AAP-4.A.3:</strong> <em>Efficiency</em> is an estimation of the amount of computational resources used by an algorithm. Efficiency is typically expressed as a function of the size of the input.</li>
+                <li><strong>AAP-4.A.4:</strong> An algorithm's efficiency is determined through formal or mathematical reasoning.</li>
+                <li><strong>AAP-4.A.5:</strong> An algorithm's efficiency can be informally measured by determining the number of times a statement or group of statements executes.</li>
+                <li><strong>AAP-4.A.6:</strong> Different correct algorithms for the same problem can have different efficiencies.</li>
+                <li><strong>AAP-4.A.7:</strong> Algorithms with a polynomial efficiency or slower (constant, linear, square, cube, etc.) are said to run in a <em>reasonable amount of time</em>. Algorithms with exponential or factorial efficiencies are examples of algorithms that run in an <em>unreasonable amount of time</em>.</li>
+                <li><strong>AAP-4.A.8:</strong> Some problems cannot be solved in a reasonable amount of time because there is no efficient algorithm for solving them. In these cases, approximate solutions are sought.</li>
+                <li><strong>AAP-4.A.9:</strong> A <em>heuristic</em> is an approach to a problem that produces a solution that is not guaranteed to be optimal but may be used when techniques that are guaranteed to always find an optimal solution are impractical.</li>
+                <li><strong>AAP-4.B.1:</strong> A <em>decidable problem</em> is a decision problem for which an algorithm can be written to produce a correct output for all inputs (e.g., <em>Is the number even?</em>).</li>
+                <li><strong>AAP-4.B.2:</strong> An <em>undecidable problem</em> is one for which no algorithm can be constructed that is always capable of providing a correct yes-or-no answer.</li>
+                <li><strong>AAP-4.B.3:</strong> An undecidable problem may have some instances that have an algorithmic solution, but there is no algorithmic solution that could solve all instances of the problem.</li>
+                <li><strong>CSN-2.A.1:</strong> <em>Sequential computing</em> is a computational model in which operations are performed in order one at a time.</li>
+                <li><strong>CSN-2.A.2:</strong> <em>Parallel computing</em> is a computational model where the program is broken into multiple smaller sequential computing operations, some of which are performed simultaneously.</li>
+                <li><strong>CSN-2.A.3:</strong> <em>Distributed computing</em> is a computational model in which multiple devices are used to run a program.</li>
+                <li><strong>CSN-2.A.4:</strong> Comparing efficiency of solutions can be done by comparing the time it takes them to perform the same task.</li>
+                <li><strong>CSN-2.A.5:</strong> A sequential solution takes as long as the sum of all of its steps.</li>
+                <li><strong>CSN-2.A.6:</strong> A parallel computing solution takes as long as its sequential tasks plus the longest of its parallel tasks.</li>
+                <li><strong>CSN-2.A.7:</strong> The "speedup" of a parallel solution is measured in the time it took to complete the task sequentially divided by the time it took to complete the task when done in parallel.</li>
+                <li><strong>CSN-2.B.1:</strong> Parallel computing consists of a parallel portion and a sequential portion.</li>
+                <li><strong>CSN-2.B.2:</strong> Solutions that use parallel computing can scale more effectively than solutions that use sequential computing.</li>
+                <li><strong>CSN-2.B.3:</strong> Distributed computing allows problems to be solved that could not be solved on a single computer because of either the processing time or storage needs involved.</li>
+                <li><strong>CSN-2.B.4:</strong> Distributed computing allows much larger problems to be solved quicker than they could be solved using a single computer.</li>
+                <li><strong>CSN-2.B.5:</strong> When increasing the use of parallel computing in a solution, the efficiency of the solution is still limited by the sequential portion. This means that at some point, adding parallel portions will no longer meaningfully increase efficiency.</li>
+            </ul>
+        </div>
+
+
+	</body>
+</html>

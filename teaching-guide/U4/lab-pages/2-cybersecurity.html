@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="/bjc-r/llab/loader.js"></script>
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+		<title>Unit 4 Lab 2 Teacher Guide</title>
+	</head>
+
+	<body>
+		<h2>Lab 2: Cybersecurity</h2>
+		<p>Students learn about various cybersecurity risks on the Internet and the basic concepts of cryptography. If nothing else, students should come away with an understanding of what <em>public key cryptography</em> means and why it's so important.</p> 
+
+		<h3>Pacing:</h3>
+        <div>
+			The 5 required lab pages could be split across 4&ndash;7 days (<strong>145&ndash;290 minutes</strong>). Expected times to complete follow:
+			<ul>
+				<li>45&ndash;90 minutes (1&ndash;2 class periods) on <a href="/bjc-r/cur/programming/4-internet/2-cybersecurity/1-cryptography.html?topic=nyc_bjc%2F4-internet.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 1: Cryptography">Cryptography</a></li>
+				<li>If used, 30&ndash;60 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/4-internet/2-cybersecurity/2-caesar-cipher.html?topic=nyc_bjc%2F4-internet.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 2: Caesar Cipher Project">Caesar Cipher Project</a>*</li>
+				<li>20&ndash;40 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/4-internet/2-cybersecurity/3-asymmetric_cryptography.html?topic=nyc_bjc%2F4-internet.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 3: Public Key Encryption">Public Key Encryption</a></li>
+				<li>40&ndash;80 minutes (1&ndash;2 class periods) on <a href="/bjc-r/cur/programming/4-internet/2-cybersecurity/4-who-cares-about-encryption.html?topic=nyc_bjc%2F4-internet.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 4: Who Cares About Encryption?">Who Cares About Encryption?</a></li>
+				<li>25&ndash;50 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/4-internet/2-cybersecurity/5-security-risks.html?topic=nyc_bjc%2F4-internet.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 5: Security Risks">Security Risks</a></li>
+				<li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/4-internet/2-cybersecurity/6-cybersecurity.html?topic=nyc_bjc%2F4-internet.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 6: What Can You Do?">What Can You Do?</a></li>
+			</ul>
+    		<div w3-include-html="/bjc-r/utilities/includes/asterisk.txt"></div><script>w3.includeHTML();</script>        
+		</div>
+
+
+		<h3>Prepare</h3>
+		<div>
+			<ul>
+				<li>As you do <a href="http://bjc.edc.org/bjc-r/cur/teaching-guide/U1/general-support/computing-in-the-news.html" target="_blank" title="Computing in the News">Computing in the News </a> with your students this week, look for news stories relating to issues of encryption. Highlight stories that might give students ideas for their research task at the end of the lab about innovations that need to transmit data securely.</li>
+                <li>Students will read parts of <a href="http://www.bitsbook.com/wp-content/uploads/2008/12/B2B_3.pdf#page=179" target="_blank" title="Secret Bits: How Codes Became Unbreakable">Chapter 5 of Blown to Bits</a>. Reading through the entire chapter will be helpful, especially to get a better understanding of the evolution of encryption methods and some details of public key encryption.</li>
+			</ul>
+		</div>
+        
+<!--<div class="todo">Moved here from internet-garcia.html for TG as a CITN (for Lab 5?) --MF
+            <h3>Heartbleed Bug!</h3>
+            <p>About one year ago, a bug of incredible magnitude was uncovered.  It was an incredibly serious security hole (aka vulnerability) in OpenSSL, which provides security and privacy for the Internet (web, email, IM, VPNs, etc).  </p>
+            <p><a href="heartbleed.com" target="_blank">heartbleed.com</a></p>
+		</div>-->
+        
+        
+
+		<h3>Lab Pages</h3>
+		<div>
+			<ul>
+				<li>
+					<strong>Page 1: Cryptography.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+                            <ul>
+                                <li>Understand what it means to encode and decode text.</li>
+                                <li>Understand the difference between symmetric and asymmetric cryptography. </li>
+                                <li>Understand how Caesar and substitution ciphers work.</li>
+                                <li>Be able to explain why these ciphers are examples of symmetric cryptography.</li>
+                            </ul>
+						</li>
+                        <li>
+                        	<strong>Tips:</strong>
+                        	<ul>
+                                <li>Most students will greatly enjoy encoding and decoding secret messages.  Make sure that there is enough time planned in the lesson for this hands-on activity.</li>
+                                <li>It may be a good idea to suggest that for starters students try to encode/decode very short messages.</li>
+                                <li>Some students may get frustrated in the decoding process, not being able to crack their partner's code, even for short messages.  Tell them that the challenging nature of decoding is to be expected and is actually one of the main take aways of this activity.</li>
+                                <li>Some students may find the ciphers discussed here too abstract.  Let them encode/decode a simple message using the example ciphers given to gain some hands-on experience.</li>
+                                <li>Take some time to discuss the weaknesses of these ciphers and how they may be broken.  Invite suggestions on how to improve on the security of such systems of cryptography.</li>
+                            </ul>
+                        </li>
+					</ul>
+				</li>
+				<li>
+                	<strong>Page 2: Caesar Cipher Project.</strong>
+					<ul>
+                        <li>
+                            <strong>Learning Goals:</strong> 
+                            <ul>
+                                <li>Gain hands-on experience with cryptography.</li>
+                                <li>Implement a simple version of the Caesar Cipher.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+							<ul>
+								<li>You may want to direct students to the Oscar nominated movie <a href="https://www.youtube.com/watch?v=S5CjKEFb-sM" target="_blank" title="The Imitation Game trailer">"The Imitation Game"</a>, which tells the story of Alan Turing and his team of cryptographers who broke the Nazi encryption system "Enigma" based on the Vigenere Cipher. Students could research and discuss how this breakthrough ushered an era of research leading to the birth of modern Computer Science. (If your connection blocks YouTube, you can watch the trailer of <a href="https://scratch.mit.edu/discuss/youtube/S5CjKEFb-sM" title="The Imitation Game trailer on scratch.mit.edu" target="_blank">"The Imitation Game" on scratch.mit.edu</a>.) </li>
+							</ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Page 3: Public Key Encryption.</strong>
+                    <ul>
+                        <li>
+                            <strong>Learning Goals:</strong> 
+                            <ul>
+                                <li>Understand the basics of public key encryption, secure HTTP, and certificate authorities.</li>
+                                <li>Catch a glimpse into the ingenious method of public key cryptography.</li>
+                                <li>Understand why public key cryptography is an example of asymmetric cryptography.</li>
+                                <li>Appreciate how open standards help with Internet security.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+                            <ul>
+                                <li>It may seem nonintuitive that open standards <em>help</em> with Internet security. If you want to keep something a secret, shouldn't the method of keeping it secret be kept secret too? The answer is no, but this takes some thinking out. The reason is that complicated algorithms may have hidden bugs, so by <em>publishing</em> the algorithm openly, you invite everyone in the world to look for bugs.</li>
+                                <li>Why do we need Certificate Authorities? If you want to send a secure message to a personal friend, you can physically meet your friend or talk on the phone to exchange public keys. But if you want to send a secure message to a big institution (like your bank, Amazon, or Google), how do you know their public key? You can look on their web site, but until you've exchanged public keys, you can't be sure that what your browser shows you really <em>is</em> their web site. This is why we need Certificate Authorities. The public keys from Certificate Authorities are hardwired into your browser. Nevertheless, CAs have been compromised or spoofed; this is one of the weak links in Internet security. (The Wikipedia article on CA attacks is fairly readable if a student wants to study this question further.)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Page 4: Who Cares About Encryption?</strong>
+                    <ul>
+                        <li>
+                            <strong>Learning Goal:</strong> 
+                            <ul>
+                            	<li>Understand that it is controversial to allow public access to secure encryption.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tip:</strong>
+                            <ul>
+                            	<li>Encourage students to practice presenting and defending a point of view they would not necessarily agree with personally. This practice will sharpen their debating skills and empower them to anticipate the arguments and logic of opposing points of view in the future.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Page 5: Security Risks</strong>
+                    <ul>
+                        <li>
+                            <strong>Learning Goal:</strong> 
+                            <ul>
+                            	<li>Understand various types of cybercrime including distributed denial-of-service attacks, phishing, and viruses.</li>
+                            </ul>
+                        </li>
+                        <!--<li>
+                            <strong>Tips:</strong>
+                            <ul>
+                            	<li></li>
+                            	<li></li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                </li>
+                <li>
+                    <strong>Page 6: What Can You Do?</strong>
+                    <ul>
+                        <li>
+                            <strong>Learning Goal:</strong>
+                            <ul>
+                                <li>Understand ways to protect against cybercrime including the use of antivirus software and firewalls.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+                            <ul>
+                            	<li><em><u>Please</u></em> do not overemphasize this page,  on which the College Board preaches to students (through us) about  password hygiene.  The only really important idea on the page is in its  first sentence: "It should not be the responsibility of the individual  to ensure their safety online just as it's not their responsibility to  do a safety inspection of every subway car before boarding."  This is  the Beauty and Joy of Computing, not the Fear and Trembling of  Computing.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        
+        <h3>Related Resources</h3>
+		<div>
+            If you like reading Wikipedia articles, you may find these interesting and relevant:
+            <ul>
+                <li><a href="https://en.wikipedia.org/wiki/Computer_security" target="_blank" title="Computer security">Computer security</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Web_of_trust" target="_blank" title="Web of trust">Web of trust</a></li>
+            </ul>
+        </div>
+	
+			
+		<h3>Solutions</h3>
+        <div w3-include-html="/bjc-r/utilities/includes/4-solutions.txt"></div><script>w3.includeHTML();</script>
+			
+			
+		<h3>Correlation with 2020 AP CS Principles Framework<a name="AP" class="anchor">&nbsp;</a></h3>
+        <div class="apStandards">
+            <h4>Computational Thinking Practices: Skills</h4>
+            <ul>
+                <li><strong>5.E:</strong> Evaluate the use of computing based on legal and ethical factors.</li>
+                <li><strong>6.B:</strong> Use safe and secure methods when using computing devices.</li>
+            </ul>
+            <h4>Learning Objectives:</h4>
+            <ul>
+                <li><strong>IOC-2.B:</strong> Explain how computing resources can be protected and can be misused. (5.E)</li>
+                <li><strong>IOC-2.C:</strong> Explain how unauthorized access to computing resources is gained. (5.E)</li>
+            </ul>
+            <h4>Essential Knowledge:</h4>
+            <ul>
+                <li><strong>IOC-2.B.1:</strong> Authentication measures protect devices and information from unauthorized access. Examples of authentication measures include strong passwords and multifactor authentication.</li>
+                <li><strong>IOC-2.B.2:</strong> A strong password is something that is easy for a user to remember but would be difficult for someone else to guess based on knowledge of that user.</li>
+                <li><strong>IOC-2.B.3:</strong> <em>Multifactor authentication</em> is a method of computer access control in which a user is only granted access after successfully presenting several separate pieces of evidence to an authentication mechanism, typically in at least two of the following categories: knowledge (something they know); possession (something they have), and inherence (something they are).</li>
+                <li><strong>IOC-2.B.4:</strong> Multifactor authentication requires at least two steps to unlock protected information; each step adds a new layer of security that must be broken to gain unauthorized access.</li>
+                <li>
+                    <strong>IOC-2.B.5:</strong> <em>Encryption</em> is the process of encoding data to prevent unauthorized access. <em>Decryption</em> is the process of decoding the data. Two common encryption approaches are: 
+                    <ul>
+                        <li>Symmetric key encryption involves one key for both encryption and decryption.</li>
+                        <li>Public key encryption pairs a public key for encryption and a private key for decryption. The sender does not need the receiver's private key to encrypt a message, but the receiver's private key is required to decrypt the message.</li>
+                    </ul>
+                </li>
+                <li><strong>IOC-2.B.6:</strong> Certificate authorities issue digital certificates that validate the ownership of encryption keys used in secure communications and are based on a trust model.</li>
+                <li><strong>IOC-2.B.7:</strong> Computer virus and malware scanning software can help protect a computing system against infection.</li>
+                <li><strong>IOC-2.B.8:</strong> A <em>computer virus</em> is a malicious program that can copy itself and gain access to a computer in an unauthorized way. Computer viruses often attach themselves to legitimate programs and start running independently on a computer.</li>
+                <li><strong>IOC-2.B.9:</strong> <em>Malware</em> is software intended to damage a computing system or to take partial control over its operation.</li>
+                <li><strong>IOC-2.B.10:</strong> All real-world systems have errors or design flaws that can be exploited to compromise them. Regular software updates help fix errors that could compromise a computing system.</li>
+                <li><strong>IOC-2.B.11:</strong> Users can control the permissions programs have for collecting user information. Users should review the permission settings of programs to protect their privacy.</li>
+                <li><strong>IOC-2.C.1:</strong> <em>Phishing</em> is a technique that attempts to trick a user into providing personal information. That personal information can then be used to access sensitive online resources, such as bank accounts and emails.</li>
+                <li><strong>IOC-2.C.2:</strong> <em>Keylogging</em> is the use of a program to record every keystroke made by a computer user in order to gain fraudulent access to passwords and other confidential information.</li>
+                <li><strong>IOC-2.C.3:</strong> Data sent over public networks can be intercepted, analyzed, and modified. One way that this can happen is through a rogue access point.</li>
+                <li><strong>IOC-2.C.4:</strong> A <em>rogue access point </em>is a wireless access point that gives unauthorized access to secure networks.</li>
+                <li><strong>IOC-2.C.5:</strong> A malicious link can be disguised on a web page or in an email message.</li>
+                <li><strong>IOC-2.C.6:</strong> Unsolicited emails, attachments, links, and forms in emails can be used to compromise the security of a computing system. These can come from unknown senders or from known senders whose security has been compromised.</li>
+                <li><strong>IOC-2.C.7:</strong> Untrustworthy (often free) downloads from freeware or shareware sites can contain malware.</li>
+            </ul>
+        </div>
+
+
+	</body>
+</html>

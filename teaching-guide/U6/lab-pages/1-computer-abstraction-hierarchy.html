@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="/bjc-r/llab/loader.js"></script>
+		<script src="https://www.w3schools.com/lib/w3.js"></script>
+		<title>Unit 6 Lab 1 Teacher Guide</title>
+	</head>
+
+	<body>
+		<h2>Lab 1: Computer Abstraction Hierarchy</h2>
+        <p>People mostly take for granted the enormous behind-the-curtain technology that allows their favorite apps to work. Unit 4 gave a first glimpse at that technology for apps that rely on the Internet, with an abstraction hierarchy that includes application protocols, TCP, IP, and link layer (hardware interface) protocols. There are even more levels of abstraction <em>inside</em> your computer. The purpose of this lab is to tour these levels of abstraction, from high (application programs) to low (transistors).</p>
+        <p>
+        	Keep this entire lab light. Throughout the lab, there's much that can be expanded. Some students will want more, so additional interesting information is tucked away in optional reading sections that hide detail that's not needed for the AP exam but may appeal to student curiosity, like this:
+			<div class="endnote">
+                <a href="#hint-why" data-toggle="collapse" title="Why tour that whole range of abstraction?">Why tour that whole range of abstraction?</a>
+                <div id="hint-why" class="collapse">
+                    <p>Most computer engineers specialize in one level of abstraction, spending their entire careers  at that level. But the engineers who really change the nature of the technology are always aware of the latest developments at  levels above and below their own work, because those other levels exert pressure on the design of any individual level.</p>
+                    <p>
+                        For example at the start of the 1970s, computer architectures were mostly designed to provide a  large and flexible set of machine language instructions. By the end of the decade, instruction sets were  smaller and simpler. Why? Two reasons:
+                        <ul>
+                            <li><strong>Pressure from above.</strong> In the early '70s, a lot of programming was done by human programmers writing machine language (using  assembly language notation). By the end of the decade, compiler technology had improved enough for pretty much everyone to trust compilers to produce efficient programs. For a compiler, simple instruction sets make it easier to optimize programs.</li>
+                            <li><strong>Pressure from below.</strong> In the early '70s,  processor circuitry was much faster than the computer's memory,  so it made sense to get as much computation as possible out of each instruction loaded from memory. By the end of the decade, multilevel cache memory technology made memory references  about as fast as processor cycles, so the way to make programs  efficient was to load instructions  from memory as fast as possible, each instruction doing only as much computational work as can fit before the next instruction arrives.</li>
+                        </ul>
+                    </p>
+                    <p>The details of this example aren't important for you or your students to learn; the point of the story is to motivate you in familiarizing students with the entire hierarchy from top to bottom.</p>
+                </div>
+			</div>
+        </p>
+        <p>Not all abstraction levels are equally important. We single out two: the <em>software abstraction</em> that allows a computer to solve different problems without having to be physically rewired for each one, and the <em>digital abstraction</em> that allows hardware designers to pretend that a transistor is always either fully on or fully off.</p> 
+        <div class="commentBig">FOR NEXT YEAR: The abstraction commentary about "nuanced meanings" should really appear earlier in the year. We should change the next year, and what remains here should just be a nod to that ongoing discussion. --MF, 11/21/17 (with Brian)</div>
+        <p>Abstraction has many nuanced meanings in computer science. At the end of each page that deals with abstraction, ask students, "What does abstraction mean on this page?" and consider keeping a running log.</p>
+        <p>There is a lot of reading in this lab. Find a strategy that works for your class. You might have students take turns reading, or you might have all students read a section silently and then ask one or two students to summarize out loud.</p>
+
+        
+		<h3>Pacing</h3>
+		<div>
+			The 10 lab pages could be split across 4&ndash;8 days (<strong>180&ndash;360 minutes</strong>). Expected times to complete follow:
+			<ul>
+                <li>10&ndash;20 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/6-computers/1-abstraction/01-abstraction.html?topic=nyc_bjc%2F6-how-computers-work.topic&course=bjc4nyc.html&novideo&noassignment" title="Abstraction Inside the Computer">Abstraction Inside the Computer</a></li>
+                <li>10&ndash;20 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/6-computers/1-abstraction/02-software-applications.html?topic=nyc_bjc%2F6-how-computers-work.topic&course=bjc4nyc.html&novideo&noassignment" title="The Software Domain: Applications">The Software Domain: Applications</a></li>
+                <li>30&ndash;60 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/6-computers/1-abstraction/03-software-languages.html?topic=nyc_bjc%2F6-how-computers-work.topic&course=bjc4nyc.html&novideo&noassignment" title="The Software Domain: Programming Languages">The Software Domain: Programming Languages</a></li>
+                <li>30&ndash;60 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/6-computers/1-abstraction/04-software-libraries.html?topic=nyc_bjc%2F6-how-computers-work.topic&course=bjc4nyc.html&novideo&noassignment" title="The Software Domain: Libraries">The Software Domain: Libraries</a></li>
+                <li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/6-computers/1-abstraction/05-software-OS.html?topic=nyc_bjc%2F6-how-computers-work.topic&course=bjc4nyc.html&novideo&noassignment" title="The Software Domain: Operating Systems">The Software Domain: Operating Systems</a></li>
+                <li>15&ndash;30 minutes (&lt;1 class periods) on <a href="/bjc-r/cur/programming/6-computers/1-abstraction/06-digital-architecture.html?topic=nyc_bjc%2F6-how-computers-work.topic&course=bjc4nyc.html&novideo&noassignment" title="The Digital Domain: Architecture">The Digital Domain: Architecture</a></li>
+                <li>10&ndash;20 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/6-computers/1-abstraction/07-digital-components.html?topic=nyc_bjc%2F6-how-computers-work.topic&course=bjc4nyc.html&novideo&noassignment" title="The Digital Domain: Components">The Digital Domain: Components</a></li>
+                <li>25&ndash;50 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/6-computers/1-abstraction/08-digital-IC.html?topic=nyc_bjc%2F6-how-computers-work.topic&course=bjc4nyc.html&novideo&noassignment" title="The Digital Domain: Integrated Circuits">The Digital Domain: Integrated Circuits</a></li>
+                <li>25&ndash;50 minutes (about 1 class period) on <a href="/bjc-r/cur/programming/6-computers/1-abstraction/09-digital-logic-gates.html?topic=nyc_bjc%2F6-how-computers-work.topic&course=bjc4nyc.html&novideo&noassignment" title="The Digital Domain: Logic Gates">The Digital Domain: Logic Gates</a></li>
+                <li>10&ndash;20 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/6-computers/1-abstraction/10-analog.html?topic=nyc_bjc%2F6-how-computers-work.topic&course=bjc4nyc.html&novideo&noassignment" title="The Analog Domain: Transistors">The Analog Domain: Transistors</a></li>	    
+            </ul>
+		</div>
+
+		<h3>Prepare</h3>
+        <div>
+            <ul>
+                <li>
+                    <strong>Hardware Teardown.</strong> The ideal introduction to this unit is not mentioned in the student materials to leave teachers free to choose, but it's exciting and instructive for students in groups to take apart an actual (<em>old</em>) computer.
+                    <ul>
+                        <li>Materials: Preferably, one computer per four students or so, but even just one computer with the whole class watching is still  great. You don't need a <em>working</em> computer, but working is better; the thrill when they put it back together and it still works is fantastically motivating. In most places, it's no longer legal to dump old computers in the garbage, so nonworking computers can often be obtained free from recycling centers. Working  antiques (i.e., over ten years old) can be bought very cheaply at used computer stores or recycling centers. If your school is buying new computers,  you may be able to grab  old ones before they leave the building.</li>
+                        <li>Instructions: <a href="http://www.ifixit.com" target="_blank" title="ifixit.com">ifixit.com</a> is one good source of teardown guides, such as this example: <a href="https://www.ifixit.com/Teardown/Compaq+Deskpro+EN+Teardown/55804" target="_blank" title="Compaq Deskpro EN Teardown">Compaq Deskpro EN Teardown</a>. You can perhaps find one specifically for the particular model of old computer you salvaged. It doesn't have to be on their site; just do a web search for your computer model and the word "teardown."</li>
+                        <li>
+                            Safety:
+                            <ul>
+                                <li><em><strong>Do not tear down a laptop</strong></em> the first time you try this activity. Laptops are very dense, and parts are often held together with glue. People do tear down laptops and even get them working again, but get some experience with desktop/tower computers first. Also, laptop batteries have been known to catch fire.</li>
+                                <li><em><strong>Do not tear down a cell phone in class ever.</strong></em> Besides sharing all the problems of laptops, they have highly explosive and flammable batteries. </li>
+                                <li><em><strong>Grounding. </strong></em>If you want the computer to work afterward, whoever works on the electronics should be grounded before opening the case. This is to protect the <em>electronics</em>; the person is safe with or without grounding. Pros use a metal strap wrapped around their wrist with a wire clamped to a water pipe. Touching the metal frame of any grounded object&mdash;one that has a three-prong power cord (and is plugged in)&mdash;will do. Look up "grounding while working on a computer" to learn more.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+		<h3>Lab Pages</h3>
+		<div>
+			<ul>
+				<li>
+					<strong>Page 1: Abstraction Inside the Computer.</strong>
+					<ul>
+						<img class="imageRight noshadow" src="/bjc-r/img/6-computers/hardware-abstraction.png" alt="diagram of computer abstraction hierarchy showing three levels of decreasing abstraction: software domain (including applications, programming languages, libraries, and operating systems), digital domain (including architecture, components, integrated circuits, and logic gates), and analog domain (including transistors); there is a dividing line between the software and digital domains labeled 'program abstraction barrier' and a dividing line between the digital and analog domains labeled 'digital abstraction barrier;' there is a vertical double-headed arrow on the right indicating that the items listed first on the list (and their sub-lists) have a 'high level of abstraction' and those lower on the list have a 'low level of abstraction'" title="diagram of computer abstraction hierarchy showing three levels of decreasing abstraction: software domain (including applications, programming languages, libraries, and operating systems), digital domain (including architecture, components, integrated circuits, and logic gates), and analog domain (including transistors); there is a dividing line between the software and digital domains labeled 'program abstraction barrier' and a dividing line between the digital and analog domains labeled 'digital abstraction barrier;' there is a vertical double-headed arrow on the right indicating that the items listed first on the list (and their sub-lists) have a 'high level of abstraction' and those lower on the list have a 'low level of abstraction'" height="250"/>
+                        <li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Understand that the computer abstraction hierarchy includes three major <em>domains</em>: software, digital, and analog.</li>
+                                <li>Understand that these domains are separated by the abstraction of a <em>program</em> and the abstraction of data being represented <em>digitally</em>, as ones and zeros.</li>
+								<li>Understand that the software and digital domains each include a sub-hierarchy of abstraction.</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+								<li>
+                                    Don't worry about students memorizing the specific levels of abstraction. The main points are:
+                                    <ul>
+                                        <li>Software lets you control a computer, abstracting away the actual machine (the program abstraction); and "zeros and ones" are an abstraction over the way transistors really work (the digital abstraction).</li>
+                                        <li>The levels of abstraction in the <em>software</em> domain are <em>different programs:</em> the application programs are written in a programming language, and use libraries, and interface with the operating system to control the hardware.</li>
+                                        <li>
+                                            By contrast, the levels of abstraction in the <em>digital</em> domain are <em>different ways of thinking about the same physical object</em>. Envision yourself holding a processor chip in your hand, and asking yourself:
+                                            <ul>
+                                                <li>What's it for? (architecture)</li>
+                                                <li>What are the major structures inside it? (components)</li>
+                                                <li>What's physically inside the plastic case? (integrated circuits)</li>
+                                                <li>What are the primitive building blocks of a digital circuit? (logic gates)</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 2: The Software Domain: Applications.</strong>
+					<ul>
+						<li>
+                        	<strong>Learning Goals:</strong>
+							<ul>
+                                <li>Understand that apps are not the complete story about software but rather the tip of the iceberg, supported by a huge collection of other software.</li>
+                                <li>Review what students already know about software but with an emphasis on <em>creating</em> rather than on consuming.</li>
+                            </ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+								<li>Here and there in the litany of software uses are bad ones: spreading fake news, making public personal info such as your political views, malware. Don't over-emphasize these, but also mention at least one if one doesn't come up naturally in discussion.</li>
+								<li>Consider reading and discussing the chapter "Propaganda Machine" (pages 68–83) in <em>Weapons of Math Destruction: How big data increases inequality and threatens democracy</em> by mathematician Cathy O'Neil. It gives examples of destructive sides of "targeted advertising," and mentions a school in Brooklyn that helped expose one such destructive example.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 3: The Software Domain: Programming Languages.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+                        		<li>Understand that some languages are at a higher level of abstraction than others.</li>
+                                <li>Understand that in almost all situations, a higher level of abstraction is better, both for safety against bugs and for ease of programming.</li>
+                                <li>Learn that, nevertheless, all general-purpose languages are <em>equivalent</em> in the sense that an algorithm expressible in one language is expressible in any.</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+                                <li>Automatic memory management (garbage collection) is perhaps the most important example of abstraction in a programming language. Here is some history you could share with students: when garbage collection was introduced in Lisp in 1952, mainstream programmers ridiculed it as being too slow. But since it was used in Java in 1995, every new programming language has included it. Today it would be engineering malpractice to use a language that allows programmers any control over memory allocation. It's easy to make that case, because of a long history of memory management disasters in old software.</li>
+                                <!--<li>The page makes the argument that some languages students have never heard of, such as Scheme, are all-around better than the languages they <em>have</em> heard of, such as Python or Java. It's not important that students, or you, agree with this, but in evaluating the idea, bear in mind that the most widely used operating system on computers is Microsoft Windows. Popularity doesn't imply high quality.</li>-->
+                                <li>Students who've been exposed to other programming languages may make comparisons between languages that are almost always really about the libraries that they are comparing, e.g., "JavaScript is good because you can make web pages in it." That's because the JavaScript in web browsers has a web-page library, not because of the language itself. This is addressed on the next student page.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+		
+                <li>
+					<strong>Page 4: The Software Domain: Libraries.</strong>
+					<ul>
+						<li>
+                        	<strong>Learning Goals:</strong>
+							<ul>
+								<li>Appreciate that anyone who writes an application program is building on the work of  programmers who built libraries that do many of the hard parts.</li>
+								<li>Understand that software libraries are excellent examples of abstraction because they hide vast amounts of complexity from the programmers while providing them with versatile utility.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 5: The Software Domain: Operating Systems.</strong>
+					<ul>
+                        <li>
+							<strong>Learning Goals:</strong>
+							<ul>
+                        		<li>Understand that an operating system (Linux, macOS, Windows, etc.) is actually a package of hundreds of programs including applications (Finder, TextEdit, etc.) and libraries, along with one special program: the kernel that manages task scheduling.</li>
+							</ul>
+                        </li>
+                        <li><strong>Tips:</strong>
+							<ul>
+								<li>What does this page have to do with the College Board AP Framework? The AP Framework doesn't explicitly mention the operating system or its kernel, but some EKs are indirectly about the kernel, such as "5.2.1G A process may execute by itself or with other processes." If one processor is running multiple processes at once, there has to be a <em>scheduler</em> that switches the hardware's attention among the processes. That's part of the kernel. Similarly, the kernel is in charge of security in the file system.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 6: The Digital Domain: Architecture.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Understand that the job of a computer architecture (essentially a machine language) is to enable the software abstraction by specifying how to interpret a binary sequence as representing an algorithm.</li>
+								<li>Understand that the architecture is an <em>interface specification</em>, a document you can read, rather than an actual piece of hardware; many different hardware devices might implement the same architecture, e.g., at different speeds and costs.</li>
+                            </ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+                            <ul>
+                                <li>You may want to discuss the crucial invention of the <em>stored-program</em> architecture made by Charles Babbage with Ada Lovelace, long before electronic circuit devices. Focus on the stroke of genius that Babbage's Analytical Engine was: the complete concept of programs and a programming language, with conditionals and loops, made long before the low-level enabling technology was available (first relays in the 1930s, then vacuum tubes, then finally transistors). Long before Babbage, there were machines that performed computations, but they had <em>one particular</em> computation built in, or at best (as in Babbage's Difference Engine) a particular family of computations with a particular one selected by rearranging parts of the hardware. What was required for the modern idea of a computer was the idea of a computer <em>program</em>, as a kind of data&mdash;just like numbers&mdash;but with codes telling the machine what to do next. "Program as data" may seem like an esoteric idea when it's encountered in the form of higher order functions, but without that idea, there couldn't be programmable computers at all.</li>
+                            </ul>
+							<div class="endnote">
+                            	<a href="#hint-yellow" data-toggle="collapse" title="Hidden optional topics">There are several optional topics hidden in yellow boxes at the end of the page.</a>
+								<div id="hint-yellow" class="collapse">
+                                    <ul>
+                                        <li>The first (PC/Mac architecture) makes the point that pretty much all computers these days (except for phones and tablets) use the <em>same</em> Intel x86 architecture. That wasn't always true. PCs have always been Intel-based, but the Mac started out using the Motorola 68000 architecture, then the Apple-specific PowerPC architecture, before switching to x86. If you're interested, these are further questions you can suggest as research topics:
+                                            <ul>
+                                                <li>Why did desktop/laptop computers end up with every brand using a single architecture?</li>
+                                                <li>Why <em>don't</em> phones and tablets use the x86 architecture?</li>
+                                            </ul>
+                                        </li>
+                                        <li>The next three topics provide similar explorations of smartphones, Internet-of-things architectures, and hobbyist computers. None of this material is required for the AP, but looking at one or two specific examples can make the <em>idea</em> of an architecture more concrete.</li>
+                                        <li>The last topic is about computer architecture in general. Second sourcing is just an interesting side point about why all computers use x86, but the note about memory hierarchy is helpful understand more fully the AP's standards about memory. Specifically, the AP wants students to know that the components of a computer include the processor and the memory, but these days, the most important parts of the memory&mdash;the level-1 and level-2 caches&mdash;are <em>part of the same chip</em> as the processor. One reason for this is that today's processors are fast enough so that the speed of electrons through wire matters; the fastest memory has to be mere nanometers away from the processor.</li>
+                                    </ul>
+                                </div> 
+                            </div>
+						</li>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 7: The Digital Domain: Components.</strong>
+					<ul>
+						<li>
+                            <strong>Learning Goals:</strong>
+                            <ul>
+                                <li>Learn about different components of a computer, especially: the <em>processor</em>, which carries out the steps of a program; and <em>memory</em>, which holds both the program and its data. </li>
+                            </ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+                                <li>The relevant AP CSP EK talks about the traditional idea of three components: processor, memory, and input/output. Students, on the other hand, are likely to list the things they can see and feel: the keyboard, the screen, the printer, the backup disk, and so on. In traditional terms, all those are lumped together under I/O devices. And it's the interface hardware <em>inside the box</em> that really counts as the I/O component.</li>
+                                <li>The most important components to understand are the <em>processor,</em> which carries out the steps of a program, and the <em>memory, </em>which holds both the program and its data. (But in a modern computer, part of the memory&mdash;the level-1 and level-2 caches&mdash;are in the same chip as the processor. The processor registers are also a very small memory.)</li>
+                                <li>The bulk of this page is about the student view of components, including the things outside the box. This is because students know about these things and they or you can point to the actual things. The exercise about buying a new computer is an attempt to bring the focus into the AP idea of components, because what makes one computer model different from another are the processor width and speed and the memory size and speed. (A third factor is the amount of disk or flash "solid state disk" memory.)</li>
+                                <li>If you have students who are eager for extra work, you could have them research how USB (Universal Serial Bus) works. Here's some history that you may want to share with students: not too long ago, there were specific connectors on the back of the computer (or on the side, if it's a laptop) for each kind of external device. Today, though, all of the external devices are likely to connect to the computer through one uniform interface: USB (Universal Serial Bus). So there's a single piece of hardware inside the machine that knows how to talk to <em>any</em> USB device, and then the differences among the external devices are all handled in software.</li>
+                                <li>If students raise questions to which you don't know the answer, suggest they look it up online and tell the class the answer next class meeting.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+		
+                <li>
+					<strong>Page 8: The Digital Domain: Integrated Circuits.</strong>
+					<ul>
+						<li>
+                            <strong>Learning Goals:</strong>
+                            <ul>
+                                <li>Realize that ICs are all about <em>miniaturization</em> and it was their invention that got us from the big-as-a-room computers to modern desktop and smaller computers.</li>
+                                <li>Consider the history of <em>conflict materials</em>.</li>
+                            </ul>
+                        </li>
+		                <li>
+							<strong>Tips:</strong>
+							<ul>
+								<li>Take a moment to give students a sense of the magnitudes involved.  If 10 billion transistors fit on a one-inch  square, the length in meters of one transistor is about 254nm. The length of a simple (inorganic) molecule is around 10nm, so we aren't yet pushing the size limit for chip density—it's heat that limits us right now. But transistors will never be as small as one molecule; to get to that size we'll need a different underlying technology. This idea is covered in more detail on <a href="/bjc-r/cur/programming/6-computers/2-history-impact/2-moore.html?topic=nyc_bjc%2F6-how-computers-work.topic&course=bjc4nyc.html&novideo&noassignment" title="Moore's Law">Lab 3 Page 2: Moore's Law</a> under Limitations to Moore's Law.</li>
+								<li>The subject of conflict minerals used in everyday technology can be an upsetting one as it involves terrible human rights violations. As part of understanding the social implications of computing, students are asked to research this topic. Before presenting this page to students, research the topic yourself so that you are prepared for students' reactions to this harsh reality. At a minimum, read the two articles quoted on the student page, which present both the issues and some efforts to address them. Bear in mind, though, that these pages were written by Intel's PR department, so there's likely more to the story.</li>
+                                
+							</ul>
+						</li>
+					</ul>
+                </li>
+				<li>
+                    <strong>Page 9: The Digital Domain: Logic Gates.</strong>
+                    <ul>
+                        <li>
+                            <strong>Learning Goals:</strong>
+                            <ul>
+                                <li>Understand that computer circuitry is built out of small circuits ("gates") that compute Boolean functions.</li>
+                                <li>Understand that <em>any</em> computable function can be expressed by combining logic gates.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+                            <ul>
+                                <li>It's good if students see at least one truth table (these are hidden in a yellow box), so they get the idea that the table <em>completely defines</em> a Boolean function. This is <em>unlike</em> the addition and multiplication tables they learned in elementary school, which define the function only for single-digit inputs; a Boolean function has only two possible values for each input, whereas an arithmetic function has infinitely many possible values for each input.</li>
+                                <li>Some students may argue that ICs are less abstract than logic functions. They're right if you think of "IC" and "function" as abstract (in the ordinary sense) concepts. We put the topics in this order because an IC is designed with logic gates as its building blocks. (This is one reason why students don't need to memorize the specific abstraction levels within the domains.)</li>
+                                <li>Extension activity: Since a truth table completely defines a Boolean function, and you can construct every possible truth table for a two-input Boolean function (this is a good Take It Further exercise), it follows that there are only finitely many Boolean functions—in fact, only 16 of them. This makes for a nice mini-research project: How many of the 16 are useful? How many have names? Are they all commutative? Are they all associative? And so on.</li>
+                                <li>The optional project for building an adder circuit with logic gates show how functions with multi-bit outputs can be made out of single-bit-output Boolean functions.</li>
+                            </ul>
+                        </li>
+                    </ul>
+				</li>
+                <li>
+                    <strong>Page 10: The Analog Domain: Transistors.</strong>
+                    <ul>
+                        <li>
+                        	<strong>Learning Goals:</strong>
+                            <ul>
+                                <li>Understand the distinction between digital and analog.</li>
+                                <li>Understand that the digital abstraction is made possible by the <em>bistable</em> (a term students don't need to learn) nature of the transistor (the two flat regions in its input-output curve) and that it still takes engineering effort to ensure that each transistor stays in one of the flat regions.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+                            <ul>
+                                <li>Students who have studied electronics may notice that the usual way transistor curves are drawn shows output <em>current</em> vs. input voltage. This simplification is also correct and more easily conveys the essential idea.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+		<!--<h3>Assignments</h3>
+		<div>
+			<ul>
+				<li>...</li>
+			</ul>
+		</div>-->
+
+			
+		<h3>Solutions</h3>
+        <div w3-include-html="/bjc-r/utilities/includes/6-solutions.txt"></div><script>w3.includeHTML();</script>			
+			
+		<h3>Correlation with AP CS Principles Framework<a name="AP" class="anchor">&nbsp;</a></h3>
+		<div class="apStandards">
+			<!--<h4>Computational Thinking Practices:</h4>
+			<ul>
+				<li>Coming soon...</li>
+			</ul-->
+			<h4>Enduring Understandings:</h4>
+            <p>Students learn about software applications, their uses in creative expression and human experience (<strong>EU 1.2</strong>, <strong>EU 1.3</strong>, and <strong>EU 5.4</strong>), and impacts of software on society, entertainment, medicine, business, politics, and science (<strong>EU 7.2</strong>). They then learn about the general characteristics of programming languages used to write applications (<strong>EU 4.1</strong>) and the abstractions, including libraries and operating systems, on which programming relies (<strong>EU 2.2</strong> and <strong>EU 5.3</strong>). Students learn that arithmetic and Boolean operators are included in nearly all languages and learn about logic gates, which emulate Boolean operators in circuitry (<strong>EU 5.5</strong>). This lab builds toward these EUs by presenting the three domains of the computer abstraction hierarchy (the software domain, the digital domain, and the analog domain) and selected levels of hierarchy within them.</p>
+			<ul>
+				<li><strong>EU 1.2</strong> Computing enables people to use creative development processes to create computational artifacts for creative expression or to solve a problem.</li>
+                <li><strong>EU 1.3</strong> Computing can extend traditional forms of human expression and experience.</li>
+                <li><strong>EU 2.2</strong> Multiple levels of abstraction are used to write programs or create other computational artifacts.</li>
+                <li><strong>EU 4.1</strong> Algorithms are precise sequences of instructions for processes that can be executed by a computer and are implemented using programming languages.</li>
+                <li><strong>EU 5.3</strong> Programming is facilitated by appropriate abstractions.</li>
+                <li><strong>EU 5.4</strong> Programs are developed, maintained, and used by people for different purposes.</li>
+                <li><strong>EU 5.5</strong> Programming uses mathematical and logical concepts.</li>
+                <li><strong>EU 7.2</strong> Computing enables innovation in nearly every field.</li>
+			</ul>
+			<h4>Learning Objectives:</h4>
+			<p>Students answer several online multiple-choice questions with built-in feedback that address the level of abstraction of programming languages (<strong>LO 2.2.3</strong>).</p>
+			<ul>
+                <li><strong>LO 2.2.3</strong> Identify multiple levels of abstractions that are used when writing programs. [P3]</li>
+                <div class="todo">
+                    <p>
+                        In U1, U2, U3, and U5, but not here. (Listed on PT TG page, so that's ok for now.) Need to list in appropriate units too eventually. --MF, 12/18/17
+                        <ul><li><strong>L O 4.1.2</strong> Express an algorithm in a language. [P5]</li></ul>
+                    </p>
+                    <p>
+                        In 5.1, but might need some attention there. --MF, 12/18/17 
+                        <ul><li><strong>L O 5.2.1</strong> Explain how programs implement algorithms. [P3]</li></ul>
+                    </p>
+                    <p>
+                        <strong>BRIAN</strong>, I cut this one because I think 6.3 is a stronger location for this LO, and it already has problems for it. --MF, 12/19/17
+                        <ul><li><strong>L O 7.2.1</strong> Explain how computing has impacted innovations in other fields. [P1]</li></ul>
+                    </p>
+                </div>
+			</ul>
+			<h4>Essential Knowledge:</h4>
+			<ul>
+                <li><strong>EK 1.3.1A</strong> Creating digital effects, images, audio, video, and animations has transformed industries.</li>
+                <li><strong>EK 1.3.1B</strong> Digital audio and music can be created by synthesizing sounds, sampling existing audio and music, and recording and manipulating sounds, including layering and looping.</li>
+                <li><strong>EK 1.3.1C</strong> Digital images can be created by generating pixel patterns, manipulating existing digital images, or combining images. </li>
+                <li><strong>EK 2.2.2A</strong> Software is developed using multiple levels of abstractions, such as constants, expressions, statements, procedures, and libraries.</li>
+                <li><strong>EK 2.2.3A</strong> Different programming languages offer different levels of abstraction. </li>
+                <li><strong>EK 2.2.3B</strong> High level programming languages provide more abstractions for the programmer and make it easier for people to read and write a program. </li>
+                <li><strong>EK 2.2.3C</strong> Code in a programming language is often translated into code in another (lower-level) language to be executed on a computer. </li>
+                <li><strong>EK 2.2.3D</strong> In an abstraction hierarchy, higher levels of abstraction (the most general concepts) would be placed toward the top and lower level abstractions (the more specific concepts) toward the bottom.</li>
+                <li><strong>EK 2.2.3E</strong> Binary data is processed by physical layers of computing hardware, including gates, chips, and components. </li>
+                <li><strong>EK 2.2.3F</strong> A logic gate is a hardware abstraction that is modeled by a Boolean function.</li>
+                <li><strong>EK 2.2.3G</strong> A chip is an abstraction composed of low level components and circuits that perform a specific function.</li>
+                <li><strong>EK 2.2.3H</strong> A hardware component can be low level like a transistor or high level like a video card.</li>
+                <li><strong>EK 2.2.3I</strong> Hardware is built using multiple levels of abstractions, such as transistors, logic gates, chips, memory, motherboards, special purposes cards, and storage devices. </li>
+                <li><strong>EK 2.2.3J</strong> Applications and systems are designed, developed, and analyzed using levels of hardware, software, and conceptual abstractions. </li>
+                <li><strong>EK 4.1.2C</strong> Algorithms described in programming languages can be executed on a computer.</li>
+                <li><strong>EK 4.1.2D</strong> Different languages are better suited for expressing different algorithms.</li>
+                <li><strong>EK 4.1.2E</strong> Some programming languages are designed for specific domains and are better for expressing algorithms in those domains.</li>
+                <li><strong>EK 4.1.2F</strong> The language used to express an algorithm can affect characteristics such as clarity or readability but not whether an algorithmic solution exists.</li>
+                <li><strong>EK 4.1.2H</strong> Nearly all programming languages are equivalent in terms of being able to express any algorithm.</li>
+                <li><strong>EK 4.1.2I</strong> Clarity and readability are important considerations when expressing an algorithm in a language.</li>
+                <li><strong>EK 5.1.1E</strong> A computer program or the results of running a program may be rapidly shared with a large number of users and can have widespread impact on individuals, organizations, and society.</li>
+                <li><strong>EK 5.1.1F</strong> Advances in computing have generated and increased creativity in other fields.</li>
+                <li><strong>EK 5.2.1F</strong> Processes use memory, a central processing unit (CPU), and input and output.</li>
+                <li><strong>EK 5.2.1G</strong> A process may execute by itself or with other processes.</li>
+                <li><strong>EK 5.2.1H</strong> A process may execute on one or several CPUs.</li>
+                <li><strong>EK 5.3.1M</strong> Application program interfaces (APIs) and libraries simplify complex programming tasks.</li>
+                <li><strong>EK 5.3.1N</strong> Documentation for an API/library is an important aspect of programming.</li>
+                <li><strong>EK 5.5.1D</strong> Mathematical expressions using arithmetic operators are part of most programming languages.</li>
+                <li><strong>EK 5.5.1E</strong> Logical concepts and Boolean algebra are fundamental to programming.</li>
+                <li><strong>EK 5.5.1F</strong> Compound expressions using <em>and</em>, <em>or</em>, and <em>not</em> are part of most programming languages.</li>
+                <li><strong>EK 7.2.1A</strong> Machine learning and data mining have enabled innovation in medicine, business, and science.</li>
+                <li><strong>EK 7.2.1C</strong> Computing enables innovation by providing access to and sharing of information.</li>
+			</ul>
+		</div>			
+
+
+	</body>
+</html>

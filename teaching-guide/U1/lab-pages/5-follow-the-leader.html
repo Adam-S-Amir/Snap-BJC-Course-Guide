@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="/bjc-r/llab/loader.js"></script>
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+		<title>Unit 1 Lab 5 Teacher Guide</title>
+	</head>
+
+	<body>
+        <h2>Lab 5: Follow the Leader</h2>
+        <div class="todo">Mary still needs to review/revise this page. --MF, 5/26/20</div>
+        <p>Students create scripts in which a sprite follows the mouse around the stage and its position is sensed and followed by a second sprite.  They also continue to build experience with control structures for which conditions can be set (e.g., loops and conditionals) without yet formalizing. Resist the urge to "teach" these concepts at the outset; instead, allow students to learn how these work <em>in context</em>, applying them to their programs. Students will get lots of experience with loops and conditionals and will codify this learning later.</p>
+        <p>This lab also solidifies students' understanding of <em>multiprocessing: </em> the fact that two sprites can each run its own script in parallel.</p>
+        <p>Reading the mouse position will be used repeatedly in later units. It's not something to make a fuss about, but if you skip this lab's first page you may spend the time later teaching about mouse coordinates.</p>
+		
+
+		<h3>Pacing</h3>
+        <div>
+			The 2 lab pages could be split across 1&ndash;2 days (<strong>35&ndash;70 minutes</strong>). Expected times to complete follow:
+			<ul>
+				<li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/1-introduction/5-follow-the-leader/1-following-sprites.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 1: Sprite Following the Mouse">Sprite Following the Mouse</a></li>
+				<li>20&ndash;40 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/1-introduction/5-follow-the-leader/2-sprite-interaction.html?topic=nyc_bjc%2F1-intro-loops.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 2: Sprite Following a Sprite">Sprite Following a Sprite</a></li>
+			</ul>
+		</div>
+
+
+        <h3>Lab Pages</h3>
+		<div>
+			<ul>
+				<li>
+					<strong>Page 1: Sprite Following the Mouse.</strong>
+					<ul>
+						<li>
+                            <strong>Learning Goals:</strong>
+                            <div class="todo">
+								These goals are from last year:<br />
+								<ul>
+									<li>Create a second sprite.</li>
+									<li>Set up multiple threads with two different sprites.</li>
+									<li>Use the <code>forever</code> block to initiate an action that continues until the script that contains it is stopped.</li>
+									<li>Use the <code>mouse x</code> and <code>mouse y</code> position blocks from the sensing palette.</li>
+									<li>Control the relative sprite direction with the <code>point towards</code> block.</li>
+								</ul>
+                            </div>
+                            <ul>
+								<li>Be comfortable creating multiple sprites and giving them behaviors.</li>
+								<li>Understand how to make a sprite follow the motion of the mouse.</li>
+								<li>Learn how to have a sprite "sense" the location of another sprite and change its behavior accordingly.</li>
+								<li>Build some experience with control blocks such as the <code>forever</code> block.</li>
+                            </ul>
+							
+                        </li>
+                        <li>
+                            <strong>Discussion Questions:</strong>
+                            <ul>
+                                <li>What's the difference between the scripts for the leader and follower sprites?</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+                            <ul>
+                                <li>There is a subtle difference between the green flag and the stop button. These two buttons are not exact opposites; don't think "green starts the project and red stops it." The stop button <em>forcibly</em> stops all currently running scripts. The green flag doesn't forcibly start all scripts; it merely provides a signal that students <em>can</em> use, if they want, as a starting condition for a script. Some projects ignore the green flag entirely, and start in some other way, e.g., by clicking a button-shaped sprite on the stage. You don't have to explain all this to students, but a student might ask why clicking the flag doesn't start all scripts. (Another related possibly confusing point is that the stop button doesn't prevent scripts from starting after it's clicked. Scripts can start in response to clicking a sprite, hitting a keyboard letter, and so on.)</li>
+                                <li><strong>Mathematics Note.</strong> Experimenting with the <var>mouse x</var> and <var>mouse y</var> sensors can help students get used to the underlying coordinate grid.</li>
+                            </ul>
+                        </li>
+					</ul>
+				</li>
+				<li>
+					<strong>Page 2: Sprite Following a Sprite.</strong>
+					<ul>
+						<li>
+                            <strong>Learning Goals:</strong>
+                            <div class="todo">These goals are from last year:<br />
+								<ul>
+									<li>Use the <code>repeat until</code> block to avoid the possibility of an unintended infinite loop.</li>
+									<li>Use the <code>touching?</code> predicate block to sense if one sprite is touching another.</li>
+									<li>Use the <code>think</code> block to make a sprite "think" something. (Much like <code>say</code>, this block makes the sprite display a thought bubble containing the message, as in a cartoon.)</li>
+									<li>Pass messages between sprites with <code>tell</code> block.</li>
+								</ul>
+                            </div>
+                            <ul>
+								<li>Understand the distinction between loops that repeat indefinitely and loops that repeat until a condition is met.</li>
+								<li>Gain further experience in sprites "sensing" each other.</li>
+								<li>Learn how to have a sprite <code>tell</code> another sprite what to do.</li>
+								<li>Learn how to use the <code>say</code> and <code>think</code> blocks for creative expression.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Discussion Questions:</strong>
+                            <ul>
+                                <li>What’s the difference between <code>repeat until</code> and <code>forever</code>?</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Tips:</strong>
+                            <ul>
+                                <li>
+                                    The students may get frustrated seeing the two sprites permanently stuck on each other and unable to move. You may have to help them realize that before the chase starts, the two sprites must be separated by some distance and a brief pause must be introduced.<br />
+                                    <img class="indent" src="/bjc-r/img/1-introduction/U1ImageVideoAddendum_img/U1L5p2-PuppySeparation.png" height="80" alt="Code to separate sprites: go to x:(-200) y:(-50); wait(1) secs  and go to x:(200) y:(-50); wait(1) secs" title="Code to separate sprites: go to x:(-200) y:(-50); wait(1) secs  and go to x:(200) y:(-50); wait(1) secs"/>
+                                </li>
+                            	<li>The <img src="/bjc-r/img/blocks/touching.png" alt="touching ()?" title="touching ()?"> block is much faster than the <img src="/bjc-r/img/blocks/touching-color.png" alt="touching (color)?" title="touching (color)?"> block in Snap<em>!</em>.  Encourage students to use the former if necessary.</li>
+                            	<li>
+                                    <img class="imageRight" src="/bjc-r/img/1-introduction/simpledialogue-going-to-lunch.png" width="350" alt="Simple dialogue about going to lunch" title="Simple dialogue about going to lunch" /> 
+                                    This page has a conversation in Haitian Creole, Russian, English, and Spanish.  Make sure students understand that they are to <em>make up their own conversation</em>. The point of this example is to show that students can use whatever language(s) they like in their programs. Watch for students who have become so used to "doing what the book says" that they get stuck trying to copy this text. Encourage them to use their own creativity!
+                                </li>
+                            </ul>
+                        </li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+			
+		<h3>Resources</h3>
+        <div>
+            <ul>
+                <li><a href="https://docs.google.com/document/d/10Wcaxp1rBdsV4d2Czjq3aG5t-uZS31pK2vqgtawEOTE/edit?usp=sharing" title="Unit 1 Lab 5 Guided Notes" target="_blank">Lab 5 Guided Notes</a></li>
+                <li><a href="https://docs.google.com/document/d/1F7vKHlBEOzADu61G2viG1238Xzx59cVYhqTGdkqKmLQ/edit?usp=sharing" title="Unit 1 Formative Assessment Questions" target="_blank">Unit 1 Formative Assessment Questions</a></li>
+                <li><a href="https://docs.google.com/presentation/d/1KUPz0Aw1kDc63-SYVBJZLjXcIYajxWuz13AsZhcCJ60/edit?usp=sharing" title="Unit 1 Student Programming Journal" target="_blank">Unit 1 Student Programming Journal</a></li>
+            </ul>
+        </div>
+        
+        
+		<h3>Solutions</h3>
+        <div w3-include-html="/bjc-r/utilities/includes/1-solutions.txt"></div><script>w3.includeHTML();</script>
+			
+			
+        <h3>Correlation with 2020 AP CS Principles Framework<a name="AP" class="anchor">&nbsp;</a></h3>
+        <div class="apStandards">
+            <h4>Essential Knowledge:</h4>
+            <ul>
+                <li><strong>CRD-2.B.2:</strong> A <em>code segment</em> refers to a collection of program statements that are part of a program. </li>
+                <li><strong>AAP-2.B.2:</strong> A <em>code statement</em> is a part of program code that expresses an action to be carried out. </li>
+                <li><strong>AAP-2.B.6:</strong> Sequential statements execute in the order they appear in the code segment.</li>
+                <li><strong>AAP-2.K.3:</strong> The exam reference sheet provides
+<pre>REPEAT UNTIL(condition)
+{
+ &lt;block of statements&gt;
+}</pre>
+in which the code in <pre class="inline">block of statements</pre> is repeated until the Boolean expression <pre class="inline">condition</pre> evaluates to <pre class="inline">true</pre>.</li>
+                <li><strong>AAP-2.K.4:</strong> In <pre class="inline">REPEAT UNTIL(condition)</pre> iteration, an infinite loop occurs when the ending condition will never evaluate to <pre class="inline">true</pre>.</li>
+                <li><strong>AAP-2.K.5:</strong> In <pre class="inline">REPEAT UNTIL(condition)</pre> iteration, if the conditional evaluates to <pre class="inline">true</pre> initially, the loop body is not executed at all, due to the condition being checked before the loop.</li>
+            </ul>
+        </div>
+
+
+	</body>
+</html>

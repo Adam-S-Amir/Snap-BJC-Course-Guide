@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="/bjc-r/llab/loader.js"></script>
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+		<title>Unit 2 Lab 1 Teacher Guide</title>
+		<script type="text/javascript" src="/bjc-r/utilities/gifffer.min.js"></script>
+        <script type="text/javascript">window.onload = function() {Gifffer();}</script>
+        <link rel="stylesheet" type="text/css" href="/bjc-r/css/bjc-gifffer.css">
+    </head>
+    
+    <body>
+        <h2>Lab 1: Games</h2>
+        <div class="todo">
+            <p>Developers, see <a href="https://piazza.com/class/i7hy3udaukx6su?cid=413" target="_blank">Unit 2 Lab 1 Pages 1-2 tips and videos on Piazza</a>.</p>
+            <h4>Lab pages have been renumbered (pg 1 split into two and page 4 dropped). Need to adjust TG. --MF, 3/21/19</h4>
+        </div>
+		<p>Students build a number-guessing game in which the player tries to guess the computer's secret number, and the computer responds with as human-like dialog as the programmer can build. <!--In doing so, they focus on ideas of <strong>abstraction</strong> to serve the goals or writing clear, debuggable, improvable code—essential for developing complex programs.-->
+         Students gain more experience with conditionals and predicates, preparing them to refine and deepen their understanding  in lab 3. </p>
+		<p>This game comes back more than once in later units, because it's the canonical example of a <em>binary search</em> strategy. If you notice that some students always guess 5 first, while other kids start with 1 or 10, and if there's time at the end of the week, consider a class discussion of strategies.</p>
+		<p>This lab also expands students' understanding of variables. Students have  encountered variables in two contexts: they have created blocks that have <strong>input variables</strong>, usable only inside the block for which they were created; and they have used the <code>for</code> block, which provides an <strong>index variable</strong> (i.e., a counter), usable only in the script that contains the <strong>for</strong> block. This lab introduces <strong>script variables</strong> (a kind of <strong>local variable</strong>), created by the <img class="nopadtb" src="/bjc-r/img/prog/scriptvar.png" alt="script variables (a)" title="script variables (a)"/> block, which lets programmers create their own temporary variables in which to store information that a script  needs while it is running. A script variable is called &quot;local&quot; because it exists only while that script is active and  is accessible only by blocks inside that script. Blocks inside that script can set, use, or change the value of that script's variables; blocks outside that script cannot. Index and input variables are also local. By contrast, a <strong>global variable</strong> is accessible by any block in any script belonging to any sprite: it is global in scope.</p>
+        <div class="takeNote">It's traditional in teaching programming to start with global variables, on the theory that they're easier to understand.  We take pains to teach global variables <em>last,</em> so that students get practice dealing with limited-scope variables early.  This lets us teach good programming style without hectoring students about it.</div>
+        <p>Students take time to debug each portion of their project. They get suggestions for features to add but are on their own to think about how to structure these extensions and modifications so that the code works and remains clear.</p>
+        
+                
+        <h3>Pacing</h3>
+		<div>
+			The 5 lab pages could be split across 2&ndash;4 days (<strong>75&ndash;150 minutes</strong>). Expected times to complete follow:
+			<ul>
+				<li>10&ndash;20 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/2-complexity/1-variables-games/1-number-guessing-game.html?topic=nyc_bjc%2F2-conditionals-abstraction.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 1: Starting a Number Guessing Game">Starting a Number Guessing Game</a></li>
+				<li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/2-complexity/1-variables-games/2-checking-player-guess.html?topic=nyc_bjc%2F2-conditionals-abstraction.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 2: Checking the Player's Guess">Checking the Player's Guess</a></li>
+				<li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/2-complexity/1-variables-games/3-debugging-extending.html?topic=nyc_bjc%2F2-conditionals-abstraction.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 3: Debugging and Extending Your Number Guessing Game">Debugging and Extending Your Number Guessing Game</a></li>
+				<li>15&ndash;30 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/2-complexity/1-variables-games/4-keeping-score.html?topic=nyc_bjc%2F2-conditionals-abstraction.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 4: Keeping Score with Global Variables">Keeping Score with Global Variables</a></li>
+				<li>20&ndash;40 minutes (&lt;1 class period) on <a href="/bjc-r/cur/programming/2-complexity/1-variables-games/5-choosing-avatar.html?topic=nyc_bjc%2F2-conditionals-abstraction.topic&course=bjc4nyc.html&novideo&noassignment" title="Page 5: Choosing a Costume">Choosing a Costume</a></li>
+			</ul>
+		</div>
+        
+        <h3>Lab Pages</h3>
+		<div>
+			<ul>
+				<li>
+					<strong>Page 1: Starting a Number Guessing Game.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Create a script variable to store temporary data.</li>
+								<li>Understand that programmers can assign values to variables, more than once to the same variable, unlike students' previous experience with variables in algebra.</li>
+							</ul>
+						</li>
+                        <div class="todo">It doesn't belong anywhere; we're flushing that Discussions page! -bh
+						<li>
+							<strong>As a Class:</strong>
+							<ul>
+                        		<div class="todo">Does this really belong in the Intro to the TG and not here? --MF, 6/7/19</div>
+                                <li>There is an introductory offline activity suggested for this page included in the <a href="/bjc-r/cur/teaching-guide/U1/general-support/discussion.html#OA" title="Engaging Students in Building Algorithms Offline">Engaging Students in Building Algorithms Offline</a> section of the introduction to this Teacher Guide.</li>
+							</ul>
+						</li>
+                        </div>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 2: Checking the Player's Guess.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+                                <li>Use the <code>repeat until</code> conditional to control program flow.</li>
+                    			<li>Use the <code>ask</code> and <code>answer</code> blocks to manage text input.</li>
+							</ul>
+						</li>   
+					</ul>
+				</li>
+                <li>
+					<strong>Page 3: Debugging and Extending Your Number Guessing Game.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Analyze and debug existing code.</li>
+                                <li>Implement additional conditions using predicates.</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+                                <li>The bug in the <code>Number guessing game</code> block is in the predicate of the <code>repeat until</code>, that is, in <code>answer =</code> <var>secret number</var>. If the same number is randomly chosen twice in a row, the player's last guess will be saved in <code>answer</code>, and therefore without asking the player to guess, the program will match the secret number and the player will be congratulated. A good strategy to avoid this is to save <code>answer</code> to a variable and make sure to clear that variable's value every time the game starts again or to reset it to something that is definitely not the right answer (such as a word or a negative number).</li>
+								<li>Debugging is a skill to refine over time. To support its development, analyze and debug projects together as a class. You may also have students share bugs they have encountered either to solicit suggestions from the class or to share a successful debugging approach. Make "Cherish your bugs" a classroom slogan. If students keep journals, ask them to record every bug: the symptom, the error in the code,  how they found the error, and how they fixed it.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 4: Keeping Score with Global Variables.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Create and use a global variable to keep track of a game score.</li>
+								<li>Use conditionals to end the game when the player reaches a target score.</li>
+                                <li>Use <code>stop</code> blocks to manage program flow.</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Tips:</strong>
+							<ul>
+								<li>Note that this page is about the Click Alonzo game from U1L1, not about the number guessing game!</li>
+								<li>Be sure that students rename their project with a Unit 2 filename: U2L1-ClickAlonzo as Snap<em>!</em> will overwrite their Unit 1 project if students save their work under the U1L1-ClickAlonzo filename.
+								  <ul>
+								    <li>The student page urges students to get in the habit of saving an old project under a new name <em>before</em> they change anything in the project.</li>
+							      </ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+                <li>
+					<strong>Page 5: Choosing a Costume.</strong>
+					<ul>
+						<li>
+							<strong>Learning Goals:</strong>
+							<ul>
+								<li>Manipulate list items.</li>
+							</ul>
+						</li>
+						<li><strong>Tips:</strong>
+						  <ul>
+						    <li>This page is only superficially about costumes. It's about  assigning a list value to a variable, about selecting an item from a list, and about the syntax of dropping an expression over a menu-type input slot.</li>
+					      </ul>
+						</li>
+						<div class="todo">Do we need this commented out HTML? --MF, 5/27/20</div><!--<li>
+							<strong>Tips:</strong>
+							<ul>
+                            	<div class="todo">ST-I could not find these references in the manual.  In any event I am not in favor of recommendations that end with "too complicated" for this course.  Could be removed.<p>This was cut from the student pages. I agree that too-complicated stuff shouldn't be there, but I think it's ok to share with teachers. That being said, the manual has been updated, and these search terms no longer work, so I will cut this. --MF</p></div>
+								<li>There are, in fact, two different ways in Snap<em>!</em> to avoid using a global variable for revisiting a value with the same script; look up "block variables" and "object oriented programming with lambda" in the <a href="http://snap.berkeley.edu/snapsource/help/SnapManual.pdf" target="_blank">Snap<em>!</em> Reference Manual</a> if you or your students want to know more. (But both of those techniques are a little too complicated for this introductory course.)</li>
+								
+							</ul>
+						</li>-->
+					</ul>
+				</li>
+			</ul>
+		</div>
+        
+		<h3>Resources</h3>
+        <div>
+            <ul>
+                <li><a href="https://docs.google.com/document/d/1mJ-NxEynCwbCl3ONobWfCqk-Qosex86deaA5OI_VFSg/edit" title="Unit 2 Lab 1 Guided Notes" target="_blank">Lab 1 Guided Notes</a></li>
+                <li><a href="https://docs.google.com/document/d/1drZzaEVOaQHfYTZOE85M9lfa3cFsXA4mRVKIHIycjGc/edit" title="Unit 2 Formative Assessment Questions" target="_blank">Unit 2 Formative Assessment Questions</a></li>
+                <li><a href="https://docs.google.com/presentation/d/1fjXGhfSlt8cxQx6ohbrqZClpRm0zb_pjVu0Lp0gUoAE/edit#slide=id.g8e73bc5b33_0_236" title="Unit 2 Student Programming Journal" target="_blank">Unit 2 Student Programming Journal</a></li>
+            </ul>
+        </div>
+        
+        <h3>Solutions</h3>
+        <div w3-include-html="/bjc-r/utilities/includes/2-solutions.txt"></div><script>w3.includeHTML();</script>
+            
+            
+		<h3>Correlation with 2020 AP CS Principles Framework<a name="AP" class="anchor">&nbsp;</a></h3>
+        <div class="apStandards">
+            <h4>Computational Thinking Practices: Skills</h4>
+            <ul>
+                <li><strong>2.B:</strong> Implement an algorithm in a program.</li>
+                <li><strong>3.A:</strong> Generalize data sources through variables.</li>
+                <li><strong>4.B:</strong> Determine the result of code segments.</li>
+            </ul>
+            <h4>Learning Objectives:</h4>
+            <ul>
+                <li><strong>AAP-1.A:</strong> Represent a value with a variable. (3.A)</li>
+                <li><strong>AAP-1.B:</strong> Determine the value of a variable as a result of an assignment. (4.B)</li>
+                <li><strong>AAP-2.B:</strong> Represent a step-by-step algorithmic process using sequential code statements. (2.B)</li>
+                <li>
+                    <strong>AAP-2.N:</strong> For list operations:
+                    <ol>
+                        <li>Write expressions that use list indexing and list procedures. (2.B)</li>
+                        <li>Evaluate expressions that use list indexing and list procedures. (4.B)</li>
+                    </ol>
+                </li>
+                <li><strong>AAP-3.E:</strong> For generating random values:
+                    <ol>
+                        <li>Write expressions to generate possible values. (2.B)</li>
+                    </ol>
+                </li>
+            </ul>
+            <h4>Essential Knowledge:</h4>
+            <ul>
+                <li><strong>AAP-1.A.1:</strong> A <em>variable</em> is an abstraction inside a program that can hold a value. Each variable has associated data storage that represents one value at a time, but that value can be a list or other collection that in turn contains multiple values. </li>
+                <li><strong>AAP-1.B.1:</strong> The assignment operator allows a program to change the value represented by a variable.</li>
+                <li><strong>AAP-1.B.2:</strong> The exam reference sheet provides the "<pre class="inline">←</pre>" operator to use for assignment. For example, <pre class="inline">a ← expression</pre> evaluates <pre class="inline">expression</pre> and then assigns a copy of the result to the variable <pre class="inline">a</pre>.</li>
+                <li>
+                    <strong>AAP-1.B.3:</strong> The value stored in a variable will be the most recent value assigned. For example: 
+<pre>a ← 1
+b ← a 
+a ← 2 
+display(b)</pre>
+                    still displays <pre class="inline">1</pre>.</li>
+                <li><strong>AAP-1.C.3:</strong> An <em>index</em> is a common method for referencing the elements in a list or string using natural numbers.</li>
+                <li><strong>AAP-1.D.8:</strong> The exam reference sheet describes a list structure whose index values are 1 through the number of elements in the list, inclusive. For all list operations, if a list index is less than 1 or greater than the length of the list, an error message is produced and the program will terminate.</li>
+                <li><strong>AAP-2.E.1:</strong> A <em>Boolean value</em> is either true or false. </li>
+                <li>
+                    <strong>AAP-2.N.1:</strong> The exam reference sheet provides basic operations on lists, including: 
+                    <ul>
+                        <li>accessing an element by index: <pre class="inline">aList[i]</pre> accesses the element of aList at index <pre class="inline">i</pre>. The first element of <pre class="inline">aList</pre> is at index <pre class="inline">1</pre> and accessed using the notation <pre class="inline">aList[1]</pre>.</li>
+                        <li>determining the length of a list: <pre class="inline">LENGTH(aList)</pre> evaluates to the number of elements currently in <pre class="inline">aList</pre>.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>AAP-3.A.8:</strong> The exam reference sheet provides <pre class="inline">result ← procName(arg1, arg2, …)</pre> to assign to result the “value of the procedure” being returned by calling 
+<pre>PROCEDURE procName(parameter1, parameter2, …)
+{
+    &lt;block of statements&gt;
+    RETURN(expression)
+}</pre></li>
+                <li><strong>AAP-3.A.9:</strong> The exam reference sheet provides procedure <pre class="inline">INPUT()</pre>, which accepts a value from the user and returns the input value.</li>
+            </ul>
+        </div>
+
+
+	</body>
+</html>
