@@ -7,26 +7,23 @@ body {
     background-color: black;
 }
 
-#home {
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-    }
+#home ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
 
-    li {
-        float: left;
-    }
+#home li {
+    float: left;
+}
 
-    li a {
-        display: block;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
+#home li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 h1,
